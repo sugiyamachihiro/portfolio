@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  root 'home#home'
+  get 'about' => 'home#about'
+  get 'aboutcat' => 'home#aboutcat'
+
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',

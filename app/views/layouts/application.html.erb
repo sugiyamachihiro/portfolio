@@ -16,9 +16,44 @@
     <div class="row">
     <div class="col-md-12">
 
+        <% if user_signed_in? %>
+
            <div class="center-block" style="padding: 0 0 25px 0;">
              <nav class="nav navbar-nav navbar-left" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
-                   <h3>ぬこのきもち</h3>
+                   <%=link_to cats_path, :style=>"color:#777;text-decoration: none;" do %>
+                   <h3>portfolio</h3>
+                   <% end %>
+             </nav>
+           </div>
+
+             <nav class="nav navbar-nav navbar-right" style="padding: 0 0 0 0;">
+              <div id="slidemenu">
+                <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn" style="padding: 0 0 0 0;" >
+                    <li>
+                      <%= link_to 'about', about_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'How to Cat?', aboutcat_path %>
+                    </li>
+                    <li>
+                     <%= link_to  '', user_path(current_user.id), class: "glyphicon glyphicon-user navbar-link" %>
+                    </li>
+                    <li>
+                      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+                    </li>
+                </ul>
+              </div>
+             </nav>
+
+        <% end %>
+
+        <% unless user_signed_in? %>
+
+            <div class="center-block" style="padding: 0 0 25px 0;">
+             <nav class="nav navbar-nav navbar-left" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+                   <%=link_to root_path, :style=>"color:#777;text-decoration: none;" do %>
+                   <h3>portfolio</h3>
+                   <% end %>
              </nav>
            </div>
 
@@ -34,13 +69,15 @@
                 </ul>
               </div>
              </nav>
+
+          <% end %>
+
     </div>
     </div>
     </div>
     </header>
 
-
-    <div class="wrapper">
+<div class="wrapper">
     <%= yield %>
     </div>
 

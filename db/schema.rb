@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_071708) do
+ActiveRecord::Schema.define(version: 2019_07_01_165924) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 2019_06_26_071708) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "cats", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.string "prefecture"
+    t.text "reason"
+    t.integer "age"
+    t.string "age_detail"
+    t.integer "sex"
+    t.integer "kind"
+    t.text "condition"
+    t.string "vaccine"
+    t.text "remark"
+    t.integer "individual_or_corporate"
+    t.integer "cat_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -32,6 +50,20 @@ ActiveRecord::Schema.define(version: 2019_06_26_071708) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nick_name"
+    t.string "user_name"
+    t.integer "sex"
+    t.date "birthday"
+    t.string "postalcode"
+    t.integer "prefecture"
+    t.string "address"
+    t.string "telephone_number"
+    t.string "profile_image_id"
+    t.integer "profession"
+    t.text "introduction"
+    t.integer "user_status"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

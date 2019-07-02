@@ -9,5 +9,4 @@ end
     def user_params
         params.require(:user).permit(:nick_name, :user_name, :sex, :birthday, :postalcode, :prefecture, :address, :telephone_number, :email, :password)
     end
-
 end

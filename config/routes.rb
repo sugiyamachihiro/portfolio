@@ -17,6 +17,7 @@ devise_for :users, controllers: {
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
     resources :users
-    resources :cats
-
+    resources :cats do
+      resources :cat_images
+    end
 end

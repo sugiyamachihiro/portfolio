@@ -73,3 +73,4 @@ gem 'acts_as_paranoid', '~> 0.6.0'
 gem 'select2-rails'
 gem 'enum_help'
 gem 'pry-rails'
+gem "cocoon"

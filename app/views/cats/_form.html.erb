@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+      	<div class="col-md-6 col-md-offset-3" >
+      	     <h3 class="text-center">新しい家族を探す</h3>
+
+				<%= form_for @cat, url:cats_path do |f| %>
+
+				    <%= f.text_field :title, class: "form-control", placeholder: "title" %>
+
+			          <div class="form-group">
+			            <%= f.select :prefecture, Cat.prefectures.keys, {prompt: 'prefecture'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;" %>
+			          </div>
+
+			          <div class="form-group">
+			            <%= f.select :kind, Cat.kinds.keys, {prompt: 'kind'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;" %>
+			          </div>
+
+					<div class="form-group login-group-checkbox1 form-control">
+						<div class="radio-inline">
+						   <%= f.radio_button :sex, :オス %>
+						   <%= f.label "♂", style: "margin-right: 50px;" %>
+						</div>
+						<div class="radio-inline">
+						   <%= f.radio_button :sex, :メス %>
+						   <%= f.label "♀" %>
+						</div>
+						<div class="radio-inline">
+						   <%= f.radio_button :sex, :不明 %>
+						   <%= f.label :不明 %>
+						</div>
+					</div>
+
+						<div class="form-group login-group-checkbox2 form-control">
+							<div class="radio-inline">
+							   <%= f.radio_button :age, :子猫 %>
+							   <%= f.label :子猫, style: "margin-right: 50px;" %>
+							</div>
+							<div class="radio-inline">
+							   <%= f.radio_button :age, :成猫 %>
+							   <%= f.label :成猫 %>
+							</div>
+							<div class="radio-inline">
+							   <%= f.radio_button :age, :老猫 %>
+							   <%= f.label :老猫 %>
+							</div>
+						</div>
+
+		                <%= f.text_field :age_detail, class: "form-control", placeholder: "age_detail" %>
+
+					    <%= f.text_field :reason, class: "form-control", placeholder: "reason" %>
+
+					    <%= f.text_field :condition, class: "form-control", placeholder: "condition" %>
+					    <%= f.text_field :vaccine, class: "form-control", placeholder: "vaccine" %>
+					    <%= f.text_field :remark, class: "form-control", placeholder: "remark" %>
+
+					    	<div class="form-group login-group-checkbox3 form-control">
+							<div class="radio-inline">
+							   <%= f.radio_button :individual_or_corporate, :個人 %>
+							   <%= f.label :個人, style: "margin-right: 50px;" %>
+							</div>
+							<div class="radio-inline">
+							   <%= f.radio_button :individual_or_corporate, :法人 %>
+							   <%= f.label :法人 %>
+							</div>
+						</div>
+
+						<div id="cat_image">
+							<%= f.fields_for :cat_images do |cat_image| %>
+							<%= render 'cat_image_fields', f: cat_image %>
+							<% end %>
+						</div>
+
+					    <div class="links">
+							<%= link_to_add_association "画像追加", f, :cat_images, class: "btn btn-secondary", :style=>"background-color: #777;color: white;" %>
+						</div>
+
+				    <%= f.submit '募集', class: "btn btn-secondary btn-block", :style=>"background-color: #777;color: white;" %>
+			    <% end %>
+
+      	</div>
+  	</div>
+</div>

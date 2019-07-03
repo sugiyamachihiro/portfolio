@@ -6,6 +6,19 @@ def show
 	@favorites = @user.favorites.all
 end
 
+def update
+	@user = User.find(params[:id])
+	@user.update(user_params)
+	sign_in(@user, bypass: true)
+	redirect_to user_path(@user.id)
+end
+
+def destroy
+	@user = User.find(params[:id])
+	@user.destroy
+	redirect_to root_path
+end
+
 
     private
 

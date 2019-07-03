@@ -1,0 +1,72 @@
+<div class="container">
+      <div class="row">
+      	 <div class="col-lg-8 col-lg-offset-2" >
+			<h4>プロフィール編集</h4>
+
+			<ul class="list-unstyled">
+			<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+
+			<div class="userprofile-group">
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.text_field :nick_name, autofocus: true, autocomplete: "nick_name", class: "form-control", placeholder: "nick_name", style:"width: 500px;" %>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.text_field :user_name, autocomplete: "user_name", class: "form-control", placeholder: "user_name", style:"width: 500px;" %>
+		          </div>
+
+		          <div class="form-group login-group-checkbox form-control" style="width: 500px;margin-top: 0px;margin-bottom: 0px;" >
+		            <div class="radio-inline">
+		               <%= f.radio_button :sex, :男 %>
+		               <%= f.label :男, style: "margin-right: 50px;" %>
+		            </div>
+		            <div class="radio-inline">
+		               <%= f.radio_button :sex, :女 %>
+		               <%= f.label :女 %>
+		            </div>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.date_field :birthday, autocomplete: "birthday", class: "form-control", style: "height: 35px;color: #aaaaaa;width: 500px;" %>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.text_field :telephone_number, autocomplete: "telephone_number", class: "form-control", placeholder: "telephone_number", style:"width: 500px;"%>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.text_field :postalcode, autocomplete: "postalcode", class: "form-control", placeholder: "postalcode", style:"width: 500px;"%>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.select :prefecture, User.prefectures.keys, {prompt: 'prefecture'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;width: 500px;" %>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.text_field :address, autocomplete: "address", class: "form-control", placeholder: "address", style:"width: 500px;"%>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "email", style:"width: 500px;"%>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		                <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "password (6chara min)", style:"width: 500px;"  %>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder:"confirm password", style:"width: 500px;" %>
+		          </div>
+
+                <div class="buttongroup" style="margin-left: -15px;">
+		          <%= f.submit "更新", class: "btn btn-secondary btn-block col-lg-6 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 250px;" %>
+		          <%= link_to "退会", user_path(@user), class: "btn btn-danger  col-lg-6 destroy_#{@user.id}", style: "margin-top: 10px;width: 250px;", method: :delete %>
+		        </div>
+		    <% end %>
+		    <ul>
+			</div>
+
+	     </div>
+	  </div>
+</div>

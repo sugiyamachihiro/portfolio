@@ -1,7 +1,12 @@
 class CatsController < ApplicationController
 
 	def index
+        @cats = Cat.all
 	end
+
+    def show
+        @cat = Cat.find(params[:id])
+    end
 
     def new
     	@cat = Cat.new
@@ -23,8 +28,7 @@ class CatsController < ApplicationController
   private
 
     def cat_params
-        params.require(:cat).permit(:user_id, :title, :prefecture, :reason, :age, :age_detail, :sex, :kind, :condition, :vaccine, :remark, :individual_or_corporate, :cat_status,
-                                    cat_images_attributes: [:id, :cat_id, :image, :_destroy,])
+        params.require(:cat).permit(:user_id, :title, :prefecture, :reason, :age, :age_detail, :sex, :kind, :condition, :spay_and_neuter, :vaccine, :remark, :individual_or_corporate, :cat_status, cat_images_images: [])
     end
 
 end

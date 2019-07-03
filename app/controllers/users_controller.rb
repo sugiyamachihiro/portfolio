@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
 def show
+	@user = current_user
+	@cats = @user.cats.all
+	@favorites = @user.favorites.all
 end
 
 

@@ -3,9 +3,13 @@ class Cat < ApplicationRecord
 attachment :image
 
 belongs_to :user
-has_many :cat_images, inverse_of: :cat
+has_many :favorites, dependent: :destroy
+ def favorited_by?(user)
+          favorites.where(user_id: user.id).exists?
+ end
+has_many :cat_images, inverse_of: :cat, dependent: :destroy
 accepts_nested_attributes_for :cat_images,reject_if: :all_blank, allow_destroy: true
-#accepts_attachments_for :cat_images, attachment: :image
+accepts_attachments_for :cat_images, attachment: :image
 
 enum prefecture: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
@@ -22,10 +26,22 @@ enum sex: {オス:1,メス:2,不明:3}
 
 enum age: {子猫:1,成猫:2,老猫:3}
 
-enum kind: {雑種:1,その他:2,ベンガル:3}
+enum kind: {雑種:1,アビシニアン:2,アメリカンカール:3,アメリカンショートヘア:4,アメリカンボブテイル:5,
+            アメリカンワイヤーヘア:6,エキゾチックショートヘア:7,エジプシャンマウ:8,オシキャット:9,オリエンタルショートヘア:10,
+            オリエンタルロングヘア:11,サイベリアン:12,ジャパニーズボブテイル:13,シャム:14,シャルトリュー:15,
+            シンガプーラ:16,スコティッシュフォールド:17,スノーシュー:18,スフィンクス:19,セルカークレックス:20,
+            ソマリ:21,ターキッシュアンゴラ:22,ターキッシュバン:23,デボンレックス:24,トンキニーズ:25,
+            ノルウェージャンフォレストキャット:26,バーマン:27,バーミーズ:28,バリニーズ:29,ピクシーボブ:30,
+            ピーターボールド:31,ヒマラヤン:32,ブリティッシュショートヘア:33,ブリティッシュロングヘア:34,ペルシャ:35,
+            ベンガル:36,ボンベイ:37,マンクス:38,マンチカン:39,メインクーン:40,
+            ヨーロピアンバーミーズ:41,ラガマフィン:42,ラグドール:43,ラパーマ:44,ロシアンブルー:45,
+            三毛猫:46,ミヌエット:47,その他:48
+            }
 
 enum individual_or_corporate: {個人:1,法人:2}
 
 enum cat_status: {募集中:0, 相談中:1, 募集終了:2}
+
+enum spay_and_neuter: {未:1,済:2}
 
 end

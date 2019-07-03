@@ -19,5 +19,7 @@ devise_for :users, controllers: {
     resources :users
     resources :cats do
       resources :cat_images
+      resource :favorites, only: [:create, :destroy]
     end
+
 end

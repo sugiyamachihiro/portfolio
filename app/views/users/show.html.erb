@@ -1,11 +1,84 @@
 <div class="container">
       <div class="row">
-      	 <div class="col-md-6 col-md-offset-3" >
-      	     <h3 class="text-center">マイページ</h3>
+      	 <div class="col-md-10 col-md-offset-1" >
+      	     <h3 class="text-center" style="margin-bottom: 30px;">マイページ</h3>
 
-<h３>投稿管理</h３>
+    <!-- タブ部分 -->
+	<div class="p-3">
+		<!-- タブボタン部分 -->
+		<ul class="nav nav-tabs">
+			<li class="nav-item active">
+				<a href="#tab1" class="nav-link" data-toggle="tab" aria-expanded="true">投稿</a>
+			</li>
+			<li class="nav-item">
+				<a href="#tab2" class="nav-link" data-toggle="tab" aria-expanded="false">お気に入り</a>
+			</li>
+			<li class="nav-item">
+				<a href="#tab3" class="nav-link" data-toggle="tab" aria-expanded="false">評価</a>
+			</li>
+			<li class="nav-item">
+				<a href="#tab4" class="nav-link" data-toggle="tab" aria-expanded="false">メッセージ</a>
+			</li>
+			<li class="nav-item">
+				<a href="#tab5" class="nav-link" data-toggle="tab" aria-expanded="false">プロフィール</a>
+			</li>
+		</ul>
 
-<%= link_to '里親を探す', new_cat_path, class: "btn btn-secondary btn-block", :style=>"background-color: #777;color: white;" %>
+		<!--タブのコンテンツ部分-->
+		<div class="tab-content">
+
+		  <div id="tab1" class="tab-pane active">
+	          <div style="margin-top: 30px;">
+	            <%= render 'users/post' %>
+	          </div>
+		  </div>
+
+		  <div id="tab2" class="tab-pane">
+		    <h4 style="margin-top: 30px;margin-bottom: 15px;">お気に入り一覧</h4>
+	        <table class="table table-bordered">
+	          <thead>
+	          <tr>
+	                <th></th>
+	                <th>yyyy/mm/dd</th>
+	                <th>title</th>
+	                <th>prefecture</th>
+	                <th>status</th>
+	          </tr>
+	          </thead>
+	          <tbody>
+	          <% @favorites.each do |favorite| %>
+	          <tr>
+	                <td>
+						<%= link_to cat_path(favorite.cat.id) do %>
+							<% favorite.cat.cat_images.first(1).each do |image| %>
+							  <%= attachment_image_tag image, :image, :fill, 50, 50 %>
+							<% end %>
+						<% end %>
+	                </td>
+	                <td><%= favorite.cat.created_at.strftime('%Y/%m/%d') %></td>
+	                <td><%= favorite.cat.title %></td>
+	                <td><%= favorite.cat.prefecture %></td>
+	                <td><%= favorite.cat.cat_status %></td>
+	          </tr>
+	          <% end %>
+	          </tbody>
+	          </table>
+		  </div>
+
+		  <div id="tab3" class="tab-pane">
+		    <p>評価</p>
+		  </div>
+
+		  <div id="tab4" class="tab-pane">
+		    <p>メッセージ</p>
+		  </div>
+
+		  <div id="tab5" class="tab-pane">
+		    <p>プロフィール</p>
+		  </div>
+
+		</div>
+    </div>
 
 
 </div>

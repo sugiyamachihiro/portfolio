@@ -1,1 +1,25 @@
-<h1>猫一覧</h1>
+<div class="container">
+	<div class="row">
+	<div class="d-inline-block col-lg-10 col-lg-offset-1">
+
+		<h2 style="border-left: 8px solid #f2a49b;">ご家族様募集中の猫さん</h2>
+
+		<% @cats.each do |cat| %>
+
+				<div class="d-inline-block col-lg-3" style="margin: 30px 0 30px 0;">
+					<%= link_to cat_path(cat.id) do %>
+					  <% cat.cat_images.first(1).each do |image| %>
+					    <%= attachment_image_tag image, :image, :fill, 180, 180, style: " border-radius: 50%;" %>
+					  <% end %>
+					<% end %>
+					<div class="cat date" style="margin-left: 40px;">
+						<p class="" style="margin: 10px 0px 0px 0px;"><%= cat.kind %></p>
+						<p class="" style="margin: 0px 0px 0px 0px;"><%= cat.age %>/<%= cat.sex %></p>
+						<p class="" style="margin: 0px 0px 0px 0px;"><%= cat.prefecture %></p>
+					</div>
+				</div>
+
+		<% end %>
+　　</div>
+　　</div>
+</div>

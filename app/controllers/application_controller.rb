@@ -1,11 +1,23 @@
 class ApplicationController < ActionController::Base
 before_action :configure_permitted_parameters, if: :devise_controller?
+
+#ログイン後遷移先
 def after_sign_in_path_for(resource)
-  cats_path
+   case resource
+   when Admin
+     cats_path
+   when User
+     cats_path
+   end
 end
 
 def after_sign_out_path_for(resource)
-  root_path
+   case resource
+   when :admin
+     root_path
+   when :user
+     root_path
+   end
 end
 
 	protected

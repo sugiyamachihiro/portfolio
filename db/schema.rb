@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_083946) do
+ActiveRecord::Schema.define(version: 2019_07_03_102554) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 2019_07_02_083946) do
     t.text "remark"
     t.integer "individual_or_corporate"
     t.integer "cat_status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "spay_and_neuter"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

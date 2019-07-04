@@ -43,6 +43,9 @@
 	          <% end %>
 	          </tbody>
 	          </table>
+	          <div class="text-center">
+					<%= paginate @cats, class: "paginate" %>
+			  </div>
 
 			  <%= link_to '里親を探す', new_cat_path, class: "btn btn-secondary btn-block", :style=>"background-color: #777;color: white;margin-top: 50px;" %>
 
@@ -69,6 +72,9 @@
 	          </tr>
 	          </tbody>
 	          </table>
+			  <div class="text-center">
+					<%= paginate @cats, class: "paginate" %>
+			  </div>
 		</div>
     </div>
 </div>

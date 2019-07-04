@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
 def show
 	@user = current_user
-	@cats = @user.cats.all
-	@favorites = @user.favorites.all
+	@cats = @user.cats.page(params[:page]).reverse_order.per(10)
+	@favorites = @user.favorites.page(params[:page]).reverse_order.per(10)
 end
 
 def update

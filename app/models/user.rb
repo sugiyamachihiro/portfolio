@@ -4,7 +4,19 @@ class User < ApplicationRecord
 
 has_many :cats
 has_many :favorites, dependent: :destroy
+has_many :favorite_cats, through: :favorites, source: :cat
 
+#validation記述
+  validates :nick_name,presence: true, length:{ in: 1..50 }
+  validates :user_name,presence: true, length:{ in: 1..50 }
+  validates :sex,presence: true
+  validates :birthday,presence: true
+  validates :postalcode,presence: true, length:{is:7},format:{with:/\A[0-9]+\z/ ,message:'は数字で入力してください。'}
+  validates :prefecture,presence: true
+  validates :address,presence: true
+  validates :telephone_number,presence: true,length:{ in: 9..20 },format:{with:/\A[0-9]+\z/ ,message:'は数字で入力してください。'}
+
+#enum記述
 enum prefecture: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,

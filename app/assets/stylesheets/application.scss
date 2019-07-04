@@ -22,6 +22,35 @@
 	margin-top: 80px;
 }
 
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #999999;   /*文字の色を変える*/
+  text-decoration: none;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #696969;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+  text-decoration: none;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+  background: #cccccc;     /*背景の色を変える*/
+  color: #999999;   /*文字の色を変える*/
+  text-decoration: none;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a:hover {
+  background: #696969;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+  text-decoration: none;
+}
+
 /*------------------------------------------------------------------
 [Master Stylesheet]
 

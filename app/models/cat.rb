@@ -4,13 +4,28 @@ attachment :image
 
 belongs_to :user
 has_many :favorites, dependent: :destroy
- def favorited_by?(user)
-          favorites.where(user_id: user.id).exists?
- end
+has_many :favorite_users, through: :favorites, source: :user
+def favorite?(cat, user)
+ cat.favorites.find_by(user_id: user.id)
+end
 has_many :cat_images, inverse_of: :cat, dependent: :destroy
 accepts_nested_attributes_for :cat_images,reject_if: :all_blank, allow_destroy: true
 accepts_attachments_for :cat_images, attachment: :image
 
+#validation記述
+  validates :title,presence: true, length:{ in: 1..50 }
+  validates :prefecture,presence: true
+  validates :reason,presence: true, length:{ in: 1..2000 }
+  validates :age,presence: true
+  validates :age_detail,presence: true
+  validates :sex,presence: true
+  validates :kind,presence: true
+  validates :condition,presence: true
+  validates :spay_and_neuter,presence: true
+  validates :vaccine,presence: true
+  validates :individual_or_corporate,presence: true
+
+#enum記述
 enum prefecture: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,

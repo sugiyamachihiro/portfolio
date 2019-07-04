@@ -69,9 +69,13 @@
 
 　　　　　<!-- 画像 -->
         <div class="col-lg-6">
-			<% @cat.cat_images.each do |image| %>
-			  <%= attachment_image_tag image, :image, :fill, 300, 300 %>
-			<% end %>
+        	<div class="slick">
+				<% @cat.cat_images.each do |image| %>
+				  <div>
+				    <%= attachment_image_tag image, :image, :fill, 300, 300 %>
+				  </div>
+				<% end %>
+		    </div>
 		</div>
 
 　　　　　<!-- 詳細情報 -->
@@ -92,3 +96,12 @@
   　</div>
 　　</div>
 </div>
+
+<script>
+	 $('.slick').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 1000,
+      });
+</script>

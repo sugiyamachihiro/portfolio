@@ -1,8 +1,8 @@
 class CatsController < ApplicationController
 
-	def index
+    def index
         @cats = Cat.all
-	end
+    end
 
     def show
         @cat = Cat.find(params[:id])
@@ -22,7 +22,13 @@ class CatsController < ApplicationController
     	@cat = Cat.new(cat_params)
     	@cat.user_id = current_user.id
         @cat.save
-	    redirect_to  cat_path(@cat), notice: '里親の募集を開始しました'
+        redirect_to  cat_path(@cat), notice: '里親の募集を開始しました'
+    end
+
+    def edit
+    end
+
+    def destroy
     end
 
   private

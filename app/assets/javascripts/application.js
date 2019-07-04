@@ -18,7 +18,9 @@
 //= require_tree .
 
 
-$(document).ready(function(){
+$(document).ready(
+
+  function(){
  $('.js-searchable').select2({
    width: 200,
    allowCear: true

@@ -18,4 +18,20 @@
   padding-top: 105px; /* 上側の内側の余白で垂直方向の位置を調整 */
 }
 
+.about-visual {
+  width: 100%;
+  height: 800px;
+  background-image: url(img/about-img.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+
+.about-visual-content{
+  width: 100%;
+  height: 100%;
+  background-color: rgba( 255, 255, 255, 0.8);
+  text-align: center; /* 文字を真ん中に寄せる */
+  padding-top: 105px; /* 上側の内側の余白で垂直方向の位置を調整 */
+}
+
 

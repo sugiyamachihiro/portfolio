@@ -1,7 +1,5 @@
 class Cat < ApplicationRecord
 
-attachment :image
-
 belongs_to :user
 has_many :favorites, dependent: :destroy
 has_many :favorite_users, through: :favorites, source: :user
@@ -11,6 +9,10 @@ end
 has_many :cat_images, inverse_of: :cat, dependent: :destroy
 accepts_nested_attributes_for :cat_images,reject_if: :all_blank, allow_destroy: true
 accepts_attachments_for :cat_images, attachment: :image
+
+#runsackscope記述
+
+
 
 #validation記述
   validates :title,presence: true, length:{ in: 1..50 }

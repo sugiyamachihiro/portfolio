@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 
 def show
-	@user = current_user
+	@user = User.find(params[:id])
 	@cats = @user.cats.page(params[:page]).reverse_order.per(10)
 	@favorites = @user.favorites.page(params[:page]).reverse_order.per(10)
 end

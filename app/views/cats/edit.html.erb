@@ -1,1 +1,129 @@
-<h3>投稿の編集</h3>
+<div class="container">
+    <div class="row">
+      	<div class="col-md-6 col-md-offset-3" >
+      	     <h3 class="text-center">投稿の編集</h3>
+
+				<%= form_for @cat, :html => {:class => "form-horizontal"} do |f| %>
+
+				    <%= f.text_field :title, class: "form-control", placeholder: "title" %>
+
+			          <div class="form-group" style="margin-bottom: 0px;margin-left: 0px;">
+			            <%= f.select :prefecture, Cat.prefectures.keys, {prompt: 'prefecture'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;width: 555px;" %>
+			          </div>
+
+			          <div class="form-group" style="margin: 0px 0px;">
+			            <%= f.select :kind, Cat.kinds.keys, {prompt: 'kind'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;" %>
+			          </div>
+
+					<div class="form-group login-group-checkbox1 form-control" style="margin: 0px 0px;">
+						<div class="radio-inline">
+						   <%= f.radio_button :sex, :オス %>
+						   <%= f.label "♂", style: "margin-right: 50px;" %>
+						</div>
+						<div class="radio-inline">
+						   <%= f.radio_button :sex, :メス %>
+						   <%= f.label "♀" %>
+						</div>
+						<div class="radio-inline">
+						   <%= f.radio_button :sex, :不明 %>
+						   <%= f.label :不明 %>
+						</div>
+					</div>
+
+						<div class="form-group login-group-checkbox2 form-control" style="margin: 0px 0px;">
+							<div class="radio-inline">
+							   <%= f.radio_button :age, :子猫 %>
+							   <%= f.label :子猫, style: "margin-right: 50px;" %>
+							</div>
+							<div class="radio-inline">
+							   <%= f.radio_button :age, :成猫 %>
+							   <%= f.label :成猫 %>
+							</div>
+							<div class="radio-inline">
+							   <%= f.radio_button :age, :老猫 %>
+							   <%= f.label :老猫 %>
+							</div>
+						</div>
+
+		                <%= f.text_field :age_detail, class: "form-control", placeholder: "age_detail" %>
+
+					    <%= f.text_field :reason, class: "form-control", style: "height: 200px;", placeholder: "reason" %>
+
+					    <%= f.text_field :condition, class: "form-control", placeholder: "condition" %>
+				    <div class="form-group login-group-checkbox3 form-control" style="margin: 0px 0px;">
+						<div class="radio-inline">
+						   <%= f.radio_button :spay_and_neuter, :未 %>
+						   <%= f.label "未去勢", style: "margin-right: 50px;" %>
+						</div>
+						<div class="radio-inline">
+						   <%= f.radio_button :spay_and_neuter, :済 %>
+						   <%= f.label "去勢済" %>
+						</div>
+				　　　</div>
+					    <%= f.text_field :vaccine, class: "form-control", placeholder: "vaccine" %>
+					    <%= f.text_field :remark, class: "form-control", style: "height: 100px;", placeholder: "remark" %>
+
+						    	<div class="form-group login-group-checkbox4 form-control" style="margin: 0px 0px;">
+								<div class="radio-inline">
+								   <%= f.radio_button :individual_or_corporate, :個人 %>
+								   <%= f.label :個人, style: "margin-right: 50px;" %>
+								</div>
+								<div class="radio-inline">
+								   <%= f.radio_button :individual_or_corporate, :法人 %>
+								   <%= f.label :法人 %>
+								</div>
+							    </div>
+
+								<div class="form-group login-group-checkbox4 form-control" style="margin: 0px 0px;">
+									<div class="radio-inline">
+									   <%= f.radio_button :cat_status, :募集中 %>
+									   <%= f.label :募集中, style: "margin-right: 50px;" %>
+									</div>
+									<div class="radio-inline">
+									   <%= f.radio_button :cat_status, :相談中 %>
+									   <%= f.label :相談中 %>
+									</div>
+									<div class="radio-inline">
+									   <%= f.radio_button :cat_status, :募集終了 %>
+									   <%= f.label :募集終了 %>
+									</div>
+								</div>
+
+			            <div id="cat_image" style="margin-top: 0px;">
+			             <%= f.attachment_field :cat_images_images, multiple: true, class: "form-control"  %>
+
+			                <div class="form-control" style="height: 120px">
+				             	<% @cat.cat_images.each do |image| %>
+								    <%= attachment_image_tag image, :image, :fill, 100, 100 %>
+								    <%= attachment_image_tag image, :image, :fill, 100, 100, id: :img_prev %>
+
+								    <script type="text/javascript">
+										$(function() {
+										 function readURL(input) {
+										   if (input.files && input.files[0]) {
+										     var reader = new FileReader();
+										     reader.onload = function (e) {
+										       $('#img_prev').attr('src', e.target.result);
+										     }
+										     reader.readAsDataURL(input.files[0]);
+										   }
+										 }
+										 $("#cat_images_images").change(function(){
+										   //readURL(this);
+										   console.log("test")
+										 });
+										});
+										</script>
+								<% end %>
+						    </div>
+                        </div>
+
+                <div class="buttongroup">
+		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 250px;" %>
+		          <%= link_to "退会", cat_path(@cat), class: "btn btn-danger  col-lg-6 destroy_#{@cat.id}", style: "margin-top: 10px;width: 250px;", method: :delete %>
+		        </div>
+			    <% end %>
+
+      	</div>
+  	</div>
+</div>

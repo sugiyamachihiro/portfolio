@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="padding: 0px;">
   <head>
     <title>Portfolio</title>
     <%= csrf_meta_tags %>
@@ -7,13 +7,16 @@
     <meta name="current-user_id" content='<%= current_user.id if current_user %>'>
  <!--    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+    <script src="jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+    <link rel="stylesheet" href="style.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="padding: 0px;">
 
-    <header class="navbar navbar-fixed-top navbar-default", style="background-color: #ffe4e1;border-color: white;padding: 0 0 0 0;">
+    <header class="navbar navbar-fixed-top navbar-default", style="background-color: #ffe4e1;border-color: white;padding: 0 0 0 0;min-height: 80px;">
     <div class="container">
     <div class="row">
     <div class="col-md-12">

@@ -1,85 +1,145 @@
 <%= search_form_for @search do |f| %>
 
-<!-- 品種検索 -->
-<div style="margin: 20px 0 20px 0;">
-	<h4 style="border-left: 8px solid #f2a49b;"> 人気の猫種で探す</h4>
-	<%= link_to '雑種',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'1'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to 'スコティッシュフォールド',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'17'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to 'アメリカンショートヘア',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'4'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to 'マンチカン',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'39'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to 'ベンガル',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'36'}}%>
-</div>
+	<!-- 品種検索 -->
+	<div style="margin: 20px 0 20px 0;">
+		<h4 style="border-left: 8px solid #f2a49b;"> 人気の猫種で探す</h4>
+		<%= link_to '雑種',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'1'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to 'スコティッシュフォールド',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'17'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to 'アメリカンショートヘア',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'4'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to 'マンチカン',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'39'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to 'ベンガル',{:controller=>"cats",:action=>"index",:q=>{:kind_eq=>'36'}}%>
+	</div>
 
-<!-- 地域検索 -->
-<div style="margin: 20px 0 20px 0;">
-	<h4 style="border-left: 8px solid #f2a49b;"> 都道府県で探す</h4>
-	<%= link_to '北海道',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'1'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '青森県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'2'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '岩手県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'3'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '宮城県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'4'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '秋田県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'5'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '山形県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'6'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '福島県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'7'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '茨城県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'8'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '栃木県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'9'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '群馬県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'10'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '埼玉県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'11'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '千葉県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'12'}}%><br>
-	<%= link_to '東京都',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'13'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '神奈川県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'14'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '新潟県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'15'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '富山県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'16'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '石川県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'17'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '福井県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'18'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '山梨県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'19'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '長野県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'20'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '岐阜県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'21'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '静岡県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'22'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '愛知県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'23'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '三重県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'24'}}%><br>
-	<%= link_to '滋賀県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'25'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '京都府',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'26'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '大阪府',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'27'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '兵庫県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'28'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '奈良県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'29'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '和歌山県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'30'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '鳥取県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'31'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '島根県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'32'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '岡山県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'33'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '広島県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'34'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '山口県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'35'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '徳島県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'36'}}%><br>
-	<%= link_to '香川県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'37'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '愛媛県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'38'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '高知県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'39'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '福岡県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'40'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '佐賀県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'41'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '長崎県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'42'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '熊本県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'43'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '大分県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'44'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '宮崎県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'45'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '鹿児島県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'46'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-<%= link_to '沖縄県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'47'}}%>
-</div>
+	<!-- 地域検索 -->
+	<div style="margin: 20px 0 20px 0;">
+		<h4 style="border-left: 8px solid #f2a49b;"> 都道府県で探す</h4>
+		<%= link_to '北海道',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'1'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '青森県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'2'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '岩手県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'3'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '宮城県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'4'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '秋田県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'5'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '山形県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'6'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '福島県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'7'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '茨城県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'8'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '栃木県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'9'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '群馬県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'10'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '埼玉県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'11'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '千葉県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'12'}}%><br>
+		<%= link_to '東京都',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'13'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '神奈川県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'14'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '新潟県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'15'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '富山県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'16'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '石川県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'17'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '福井県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'18'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '山梨県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'19'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '長野県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'20'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '岐阜県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'21'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '静岡県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'22'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '愛知県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'23'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '三重県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'24'}}%><br>
+		<%= link_to '滋賀県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'25'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '京都府',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'26'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '大阪府',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'27'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '兵庫県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'28'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '奈良県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'29'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '和歌山県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'30'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '鳥取県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'31'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '島根県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'32'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '岡山県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'33'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '広島県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'34'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '山口県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'35'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '徳島県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'36'}}%><br>
+		<%= link_to '香川県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'37'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '愛媛県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'38'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '高知県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'39'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '福岡県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'40'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '佐賀県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'41'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '長崎県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'42'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '熊本県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'43'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '大分県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'44'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '宮崎県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'45'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '鹿児島県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'46'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+	<%= link_to '沖縄県',{:controller=>"cats",:action=>"index",:q=>{:prefecture_eq=>'47'}}%>
+	</div>
 
-<!-- 性別検索 -->
-<div style="margin: 20px 0 20px 0;">
-	<h4 style="border-left: 8px solid #f2a49b;"> 性別で探す</h4>
-	<%= link_to 'オス',{:controller=>"cats",:action=>"index",:q=>{:sex_eq=>'1'}}%> <span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to 'メス',{:controller=>"cats",:action=>"index",:q=>{:sex_eq=>'2'}}%>
-</div>
+	<!-- 性別検索 -->
+	<div style="margin: 20px 0 20px 0;">
+		<h4 style="border-left: 8px solid #f2a49b;"> 性別で探す</h4>
+		<%= link_to 'オス',{:controller=>"cats",:action=>"index",:q=>{:sex_eq=>'1'}}%> <span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to 'メス',{:controller=>"cats",:action=>"index",:q=>{:sex_eq=>'2'}}%>
+	</div>
 
-<!-- 年齢期検索 -->
-<div style="margin: 20px 0 20px 0;">
-	<h4 style="border-left: 8px solid #f2a49b;"> 年齢期で探す</h4>
-	<%= link_to '子猫',{:controller=>"cats",:action=>"index",:q=>{:age_eq=>'1'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '成猫',{:controller=>"cats",:action=>"index",:q=>{:age_eq=>'2'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
-	<%= link_to '老猫',{:controller=>"cats",:action=>"index",:q=>{:age_eq=>'3'}}%>
-</div>
+	<!-- 年齢期検索 -->
+	<div style="margin: 20px 0 20px 0;">
+		<h4 style="border-left: 8px solid #f2a49b;"> 年齢期で探す</h4>
+		<%= link_to '子猫',{:controller=>"cats",:action=>"index",:q=>{:age_eq=>'1'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '成猫',{:controller=>"cats",:action=>"index",:q=>{:age_eq=>'2'}}%><span style="margin-left: 5px;margin-right: 5px;color: #aaaaaa;">|</span>
+		<%= link_to '老猫',{:controller=>"cats",:action=>"index",:q=>{:age_eq=>'3'}}%>
+	</div>
 
-<!-- こだわり検索 -->
-<div style="margin: 20px 0 20px 0;">
-	<h4 style="border-left: 8px solid #f2a49b;"> 希望の詳細で探す</h4>
-</div>
+	<!-- 詳細検索 -->
+	<div style="margin: 20px 0 20px 0;">
+		<h4 style="border-left: 8px solid #f2a49b;"> 希望の詳細で探す</h4>
+
+		 <div class="form-group" style="margin: 0px 0px;">
+
+	        <%= f.select :kind_eq, options_for_select(Cat.kinds), {prompt: 'kind'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;" %>
+	    </div>
+
+	     <div class="form-group" style="margin-bottom: 0px;">
+	        <%= f.select :prefecture_eq, options_for_select(Cat.prefectures),  {prompt: 'prefecturet'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;" %>
+	    </div>
+
+		<div class="form-group search-group-checkbox1 form-control" style="margin: 0px 0px;">
+			<div class="radio-inline">
+			   <%= f.radio_button :age_eq, 1 %>
+			   <%= f.label :子猫, style: "margin-right: 50px;" %>
+			</div>
+			<div class="radio-inline">
+			   <%= f.radio_button :age_eq, 2 %>
+			   <%= f.label :成猫, style: "margin-right: 50px;" %>
+			</div>
+			<div class="radio-inline">
+			   <%= f.radio_button :age_eq, 3 %>
+			   <%= f.label :老猫 %>
+			</div>
+			<script>
+			    var nowchecked = $('input[name="q[age_eq]"]:checked').val();
+			    $('input[name="q[age_eq]"]').click(function(){
+			        if($(this).val() == nowchecked) {
+			            $(this).prop('checked', false);
+			            nowchecked = false;
+			        } else {
+			            nowchecked = $(this).val();
+			        }
+			    });
+			</script>
+		</div>
+
+		<div class="form-group search-group-checkbox2 form-control" style="margin: 0px 0px;">
+			<div class="radio-inline">
+			   <%= f.radio_button :sex_eq, 1 %>
+			   <%= f.label "♂", style: "margin-right: 50px;" %>
+			</div>
+			<div class="radio-inline">
+			   <%= f.radio_button :sex_eq, 2 %>
+			   <%= f.label "♀" %>
+			</div>
+			<script>
+				    var nowchecked = $('input[name="q[sex_eq]"]:checked').val();
+				    $('input[name="q[sex_eq]"]').click(function(){
+				        if($(this).val() == nowchecked) {
+				            $(this).prop('checked', false);
+				            nowchecked = false;
+				        } else {
+				            nowchecked = $(this).val();
+				        }
+				    });
+			</script>
+		</div>
+
+
+		<%= f.submit '理想の猫さんを探す', class: "btn btn-secondary btn-block", :style=>"background-color: #777;color: white;margin-top: 10px;" %>
+	</div>
 
 <% end %>

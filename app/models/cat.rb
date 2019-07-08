@@ -8,7 +8,7 @@ def favorite?(cat, user)
 end
 has_many :cat_images, inverse_of: :cat, dependent: :destroy
 accepts_nested_attributes_for :cat_images,reject_if: :all_blank, allow_destroy: true
-accepts_attachments_for :cat_images, attachment: :image
+accepts_attachments_for :cat_images, attachment: :image, append: true
 
 #runsackscope記述
 

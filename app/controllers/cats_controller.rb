@@ -36,14 +36,14 @@ class CatsController < ApplicationController
 
     def destroy
         @cat = Cat.find(params[:id])
-        @cat.destroy!
+        @cat.destroy
         redirect_to user_path(current_user.id)
     end
 
   private
 
-    def cat_params
-        params.require(:cat).permit(:user_id, :title, :prefecture, :reason, :age, :age_detail, :sex, :kind, :condition, :spay_and_neuter, :vaccine, :remark, :individual_or_corporate, :cat_status, cat_images_images: [])
-    end
+      def cat_params
+            params.require(:cat).permit(:user_id, :title, :prefecture, :reason, :age, :age_detail, :sex, :kind, :condition, :spay_and_neuter, :vaccine, :remark, :individual_or_corporate, :cat_status, cat_images_images: [])
+      end
 
 end

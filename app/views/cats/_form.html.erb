@@ -30,6 +30,20 @@
 						</div>
 					</div>
 
+					<script>
+					$(function(){
+					    var nowchecked = $('input[name="q[sex_eq]"]:checked').val();
+					    $('input[name="q[sex_eq]"]').click(function(){
+					        if($(this).val() == nowchecked) {
+					            $(this).prop('checked', false);
+					            nowchecked = false;
+					        } else {
+					            nowchecked = $(this).val();
+					        }
+					    });
+					});
+					</script>
+
 						<div class="form-group login-group-checkbox2 form-control" style="margin: 0px 0px;">
 							<div class="radio-inline">
 							   <%= f.radio_button :age, :子猫 %>

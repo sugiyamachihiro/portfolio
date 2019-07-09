@@ -21,5 +21,5 @@ devise_for :users, controllers: {
       resources :cat_images
       resource :favorites, only: [:create, :destroy]
     end
-
+    resources :rooms
 end

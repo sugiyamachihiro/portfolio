@@ -59,9 +59,13 @@
             <div class="col-lg-6">
 	             <% unless @cat.user_id == current_user.id %>
 		            <div class="messagelink">
-					  <%= link_to "お問い合わせ", cats_path, style: " border-radius: 45%;",class: "btn btn-default" %>
+					  <%#= link_to "お問い合わせ", cats_path, style: " border-radius: 45%;",class: "btn btn-default" %>
+				          <%= form_for @room do |f| %>
+				           		 <%= f.hidden_field :cat_id, :value => @cat.id %>
+				       		     <%= f.submit "お問い合わせ", class: "btn btn-default" %>
+				          <% end %>
 				    </div>
-			    <% end %>
+			     <% end %>
 	     	</div>
 
 	    </div>

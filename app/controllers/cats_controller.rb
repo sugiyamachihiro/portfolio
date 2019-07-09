@@ -8,6 +8,7 @@ class CatsController < ApplicationController
 
     def show
         @cat = Cat.find(params[:id])
+        @room = Room.new
     end
 
     def new

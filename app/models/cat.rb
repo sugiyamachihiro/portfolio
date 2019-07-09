@@ -10,6 +10,7 @@ has_many :cat_images, inverse_of: :cat, dependent: :destroy
 accepts_nested_attributes_for :cat_images,reject_if: :all_blank, allow_destroy: true
 accepts_attachments_for :cat_images, attachment: :image, append: true
 
+has_many :rooms
 #runsackscope記述
 
 

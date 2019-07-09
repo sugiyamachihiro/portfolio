@@ -91,13 +91,13 @@
 
 					<div class="catimages-edit">
 
-			            <div id="cat_image" style="margin-top: 0px;">
+			            <div id="cat_image" style="margin: 0px 0px;">
 			             <%= f.attachment_field :cat_images_images, multiple: true, class: "form-control"  %>
 			            </div>
 
-                       <div class="cat-images-delete">
+                       <div class="cat-images-delete" style="margin-top: 0px;">
 　　　　　　　　　　　　　　<% @cat.cat_images.each do |image| %>
-			                <div class="form-control" style="height: 120px;">
+			                <div class="form-control" style="height: 120px;margin-top: 0px;">
 								<%= attachment_image_tag image, :image, :fill, 100, 100 %>
 								<%= link_to "削除", cat_cat_image_path(cat_id: @cat.id, id: image.id), class: "btn btn-danger", style: "margin-top: 10px;width: 250px;", method: :delete %>
 							</div>

@@ -6,6 +6,8 @@ has_many :cats
 has_many :favorites, dependent: :destroy
 has_many :favorite_cats, through: :favorites, source: :cat
 
+has_many :rooms
+
 #validation記述
   validates :nick_name,presence: true, length:{ in: 1..50 }
   validates :user_name,presence: true, length:{ in: 1..50 }

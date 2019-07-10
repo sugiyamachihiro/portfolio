@@ -3,8 +3,10 @@ class UsersController < ApplicationController
 
 def show
 	@user = User.find(params[:id])
+	@cat = @user.cats
 	@cats = @user.cats.page(params[:page]).reverse_order.per(10)
 	@favorites = @user.favorites.page(params[:page]).reverse_order.per(10)
+	@fromrooms = @user.rooms.page(params[:page]).reverse_order.per(10)
 end
 
 def update

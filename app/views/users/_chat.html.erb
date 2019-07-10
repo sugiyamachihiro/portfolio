@@ -1,0 +1,89 @@
+<div class="p-3">
+
+	<!-- タブボタン部分 -->
+	<ul class="nav nav-tabs">
+		<li class="nav-item active">
+			<a href="#tab20" class="nav-link" data-toggle="tab" aria-expanded="true">問い合わせたチャット</a>
+		</li>
+		<li class="nav-item">
+			<a href="#tab21" class="nav-link" data-toggle="tab" aria-expanded="false">問い合わせされたチャット</a>
+		</li>
+	</ul>
+
+	<!--タブのコンテンツ部分-->
+	<div class="tab-content">
+		<div id="tab20" class="tab-pane active">
+
+			      <table class="table table-bordered">
+			      <thead>
+		          <tr>
+		                <th></th>
+		                <th>title</th>
+		                <th>nickname</th>
+		                <th>chat start day</th>
+		                <th>chat update day</th>
+		          </tr>
+		          </thead>
+		          <tbody>
+		          <% @fromrooms.each do |room| %>
+		          <tr>
+		                <td>
+							<%= link_to room_path do %>
+								<% room.cat.cat_images.first(1).each do |image| %>
+								  <%= attachment_image_tag image, :image, :fill, 50, 50 %>
+								<% end %>
+							<% end %>
+		                </td>
+		                <td>
+		                	<%= link_to cat_path(room.cat.id) do %>
+		                	  <%= room.cat.title %>
+		                	<% end %>
+		                </td>
+		                <td><%#= room.cat.user.nickname %></td>
+		                <td><%= room.created_at.strftime('%Y/%m/%d') %></td>
+		                <td><%= room.updated_at.strftime('%Y/%m/%d') %></td>
+		          </tr>
+		          <% end %>
+		          </tbody>
+		          </table>
+
+		</div>
+		<div id="tab21" class="tab-pane">
+
+			<table class="table table-bordered">
+			      <thead>
+		          <tr>
+		                <th></th>
+		                <th>title</th>
+		                <th>nickname</th>
+		                <th>chat start day</th>
+		                <th>chat update day</th>
+		          </tr>
+		          </thead>
+		          <tbody>
+		          <% @cat.each do |cat| %>
+		          <% cat.rooms.each do |room| %>
+		          <tr>
+		                <td>
+							<%= link_to room_path do %>
+								<% room.cat.cat_images.first(1).each do |image| %>
+								  <%= attachment_image_tag image, :image, :fill, 50, 50 %>
+								<% end %>
+							<% end %>
+		                </td>
+		                <td>
+		                	<%= link_to cat_path(room.cat.id) do %>
+		                	  <%= room.cat.title %>
+		                	<% end %>
+		                </td>
+		                <td><%#= room.cat.user.nickname %></td>
+		                <td><%= room.created_at.strftime('%Y/%m/%d') %></td>
+		                <td><%= room.updated_at.strftime('%Y/%m/%d') %></td>
+		          </tr>
+		          <% end %>
+		          <% end %>
+		          </tbody>
+		          </table>
+		</div>
+    </div>
+</div>

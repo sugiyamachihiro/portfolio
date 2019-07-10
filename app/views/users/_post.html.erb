@@ -66,13 +66,21 @@
 	          </tr>
 	          </thead>
 	          <tbody>
+	          <% @fromrooms.each do |room| %>
 	          <tr>
+	                <td>
+	                	<%= link_to cat_path(room.cat.id) do %>
+								<% room.cat.cat_images.first(1).each do |image| %>
+								<%= attachment_image_tag image, :image, :fill, 50, 50 %>
+						        <% end %>
+						<% end %>
+	                </td>
 	                <td></td>
-	                <td></td>
-	                <td></td>
-	                <td></td>
-	                <td></td>
+	                <td><%= room.cat.title %></td>
+	                <td><%= room.cat.prefecture %></td>
+	                <td><%= room.cat.cat_status %></td>
 	          </tr>
+	          <% end %>
 	          </tbody>
 	          </table>
 			  <div class="text-center">

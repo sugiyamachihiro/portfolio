@@ -2,6 +2,8 @@ class RoomsController < ApplicationController
 
 	def show
 		@room = Room.find(params[:id])
+		@user = current_user
+		@messages = Message.recent_in_room(@room_id)
 	end
 
 	def create

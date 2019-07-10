@@ -6,7 +6,19 @@ has_many :cats
 has_many :favorites, dependent: :destroy
 has_many :favorite_cats, through: :favorites, source: :cat
 
+#chat関連記述
 has_many :rooms
+has_many :from_messages, class_name: "Message",
+          foreign_key: "from_id", dependent: :destroy
+has_many :to_messages, class_name: "Message",
+          foreign_key: "to_id", dependent: :destroy
+has_many :sent_messages, through: :from_messages, source: :from
+has_many :received_messages, through: :to_messages, source: :to
+
+# Send message to other user
+def send_message(other_user, room_id, content)
+  from_messages.create!(to_id: other_user.id, room_id: room_id, content: content)
+end
 
 #validation記述
   validates :nick_name,presence: true, length:{ in: 1..50 }

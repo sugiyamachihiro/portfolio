@@ -1,5 +1,8 @@
 class Cat < ApplicationRecord
 
+#論理削除
+acts_as_paranoid
+
 belongs_to :user
 has_many :favorites, dependent: :destroy
 has_many :favorite_users, through: :favorites, source: :user
@@ -11,8 +14,6 @@ accepts_nested_attributes_for :cat_images,reject_if: :all_blank, allow_destroy: 
 accepts_attachments_for :cat_images, attachment: :image, append: true
 
 has_many :rooms
-#runsackscope記述
-
 
 
 #validation記述

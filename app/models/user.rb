@@ -2,6 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
+#論理削除
+acts_as_paranoid
+
 has_many :cats
 has_many :favorites, dependent: :destroy
 has_many :favorite_cats, through: :favorites, source: :cat

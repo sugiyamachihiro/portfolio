@@ -1,6 +1,6 @@
 <h1><%= @room.cat.title %>についてのお問い合わせ</h1>
 
-<aside class="col-md-4">
+<aside class="col-lg-12">
   <!-- 省略 -->
   <%# if !current_user?(@user) && logged_in? %>
     <section class="message_box">
@@ -8,6 +8,7 @@
         <%= render @messages %>
       </div>
     </section>
+
     <script type="text/javascript">
       var height = 0;
       $("div.message").each( function() {
@@ -15,9 +16,10 @@
       });
       $('section.message_box').scrollTop(height);
     </script>
+
     <div class="message_form">
      <%= render 'messages/message_form',
-       {from_user: current_user, to_user: @user, room_id: @room_id} %>
+       {from_user: current_user, to_user: @user, room_id: @room.id} %>
     </div>
   <%# end %>
 </aside>

@@ -50,23 +50,25 @@
 				</tbody>
 			</table>
 
+<% unless @cat.user_id == current_user.id %>
     		<!-- お気に入り -->
-				<div id="favorite_btn">
-				 <%= render 'favorite_form', cat: @cat, favorite: @favorite %>
-				</div>
+    		　　<div class="col-lg-6" style="margin-top: 20px;">
+					<div id="favorite_btn" >
+					 <%= render 'favorite_form', cat: @cat, favorite: @favorite %>
+					</div>
+			   </div>
 
             <!-- 問合せ -->
             <div class="col-lg-6">
-	             <% unless @cat.user_id == current_user.id %>
 		            <div class="messagelink">
 					  <%#= link_to "お問い合わせ", cats_path, style: " border-radius: 45%;",class: "btn btn-default" %>
 				          <%= form_for @room do |f| %>
 				           		 <%= f.hidden_field :cat_id, :value => @cat.id %>
-				       		     <%= f.submit "お問い合わせ", class: "btn btn-default" %>
+				       		     <%= f.submit "お問い合わせ", class: "btn btn-default", :style=>"width: 150px;" %>
 				          <% end %>
 				    </div>
-			     <% end %>
 	     	</div>
+<% end %>
 
 	    </div>
 

@@ -17,11 +17,11 @@
 		          </div>
 
 		          <div class="form-group login-group-checkbox form-control" style="width: 500px;margin-top: 0px;margin-bottom: 0px;" >
-		            <div class="radio-inline" style="margin-left: 15px;">
+		            <div class="radio-inline" style="margin-left: 15px;padding-top: 0px;padding-bottom: 30px;">
 		               <%= f.radio_button :sex, :男 %>
 		               <%= f.label :男, style: "margin-right: 50px;" %>
 		            </div>
-		            <div class="radio-inline">
+		            <div class="radio-inline" style="padding-top: 0px;padding-bottom: 30px;">
 		               <%= f.radio_button :sex, :女 %>
 		               <%= f.label :女 %>
 		            </div>
@@ -47,6 +47,10 @@
 		            <%= f.text_field :address, autocomplete: "address", class: "form-control", placeholder: "address", style:"width: 500px;"%>
 		          </div>
 
+                  <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.text_field :introduction, autocomplete: "introduction", class: "form-control", placeholder: "introduction", style:"width: 500px;height: 150px;"%>
+		          </div>
+
 		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
 		            <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "email", style:"width: 500px;"%>
 		          </div>
@@ -58,6 +62,10 @@
 		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
 		             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder:"confirm password", style:"width: 500px;" %>
 		          </div>
+
+		          <div class="profile-images-edit" style="margin-left: -15px;">
+			             <%= f.attachment_field :image, class: "form-control", style:"width: 500px;" %>
+                  </div>
 
                 <div class="buttongroup" style="margin-left: -15px;">
 		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 250px;" %>

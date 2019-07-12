@@ -97,7 +97,7 @@
 	 <div class="container">
 	      <div class="row">
 	      	 <div class="col-md-10 col-md-offset-1" >
-	      	     <h3 class="text-center" style="margin-bottom: 30px;">会員詳細</h3>
+	      	     <h3 class="text-center" style="margin-bottom: 30px;"><%= @user.nick_name %>さんのページ</h3>
 
 	    <!-- タブ部分 -->
 		<div class="p-3">
@@ -128,10 +128,30 @@
 			  </div>
 
 			  <div id="tab3" class="tab-pane">
-			    <p>プロフィール</p>
-			     <% @user.nick_name %>
-			     <% @user.prefecture %>
-			     <% @user.sex %>
+
+			  	<div class="row">
+	      	    <div class="col-lg-12" >
+	                 <h4 style="margin: 15px;"><%= @user.nick_name %>さんのプロフィール</h4>
+
+		                <div class="col-lg-3" >
+						    <%#= attachment_image_tag @user, :profile_image, :fill, 150, 150, fallback: "img/no_image.jpg" %>
+						</div>
+
+						<div class="col-lg-5 introduction-box" style="padding: 10px;border: 1px solid #777;height: 150px;background-color: white;color: #777;">
+							<%= @user.introduction %>
+                        </div>
+
+                        <div class="col-lg-4">
+                        	<p>ニックネーム　：　<%= @user.nick_name %></p>
+                        	<p>性別　　　　　：　<%= @user.sex %></p>
+                        	<p>在住地域　　　：　<%= @user.prefecture %></p>
+                            <p>職業　　　　　：　<%= @user.profession %></p>
+                        	<p>登録日時　　　：　<%= @user.created_at.strftime('%Y/%m/%d') %></p>
+                        </div>
+
+				</div>
+				</div>
+
 			  </div>
 
 			</div>

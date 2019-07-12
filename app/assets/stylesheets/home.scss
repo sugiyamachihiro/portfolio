@@ -31,7 +31,12 @@
   height: 100%;
   background-color: rgba( 255, 255, 255, 0.8);
   text-align: center; /* 文字を真ん中に寄せる */
-  padding-top: 105px; /* 上側の内側の余白で垂直方向の位置を調整 */
+  padding-top: 50px; /* 上側の内側の余白で垂直方向の位置を調整 */
+  text-align: left;
 }
 
+.main-text{
+  font-size: 18px;
+  color: #808080;
+}
 

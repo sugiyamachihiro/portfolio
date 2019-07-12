@@ -1,10 +1,10 @@
 class RoomsController < ApplicationController
+	before_action :authenticate_user!
 
 	def show
 		@room = Room.find(params[:id])
 		@user = current_user
-		#@messages = Message.recent_in_room(@room_id)
-		@messages = Message.all
+		@messages = Message.where(room_id: @room.id)
 	end
 
 	def create

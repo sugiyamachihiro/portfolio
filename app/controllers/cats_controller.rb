@@ -26,9 +26,13 @@ class CatsController < ApplicationController
 
     def edit
         @cat = Cat.find(params[:id])
+        if current_user.id != @cat.user.id
+           redirect_to cat_path(@cat)
+        end
     end
 
     def update
+        @user = current_user
         @cat = Cat.find(params[:id])
         @cat.update(cat_params)
         redirect_to cat_path(@cat.id)

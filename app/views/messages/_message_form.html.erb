@@ -2,7 +2,12 @@
   <input type="hidden" name="from_id" value="<%= from_user.id %>">
   <input type="hidden" name="to_id" value="<%= to_user.id %>">
   <input type="hidden" name="room_id" value="<%= room_id %>">
-  <label>Send Message to <%#= to_user.name %></label><br>
-  <input class="input-text" type="text" name="content" data-behavior="chat_speaker">
-  <button id="send" type="button" name="test" data-behavior="test">
+
+  <div class="col-lg-6 col-lg-offset-3">
+	  <input class="input-text" type="text" name="content" placeholder="Aa" data-behavior="chat_speaker" style="height: 50px;width: 550px;">
+	  <button id="send" type="button" name="test" data-behavior="test" style="height: 45px;width: 45px;color: #777;">
+	  	<i class="fas fa-location-arrow"></i>
+	  </button>
+  </div>
+
 </form>

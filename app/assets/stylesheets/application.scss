@@ -18,10 +18,20 @@
 @import "slick-theme";
 @import "slick";
 
+.title{
+  font-family: 'NikumaruFont';
+}
+
 .wrapper{
 	margin-top: 80px;
 }
 
+.message_right{
+  text-align: right;
+}
+
+
+/*ページネーション関連
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
@@ -51,6 +61,8 @@
   text-decoration: none;
 }
 
+
+/*signin/signout/password関連
 /*------------------------------------------------------------------
 [Master Stylesheet]
 

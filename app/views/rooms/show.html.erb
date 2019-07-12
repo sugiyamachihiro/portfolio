@@ -1,9 +1,7 @@
-<h1><%= @room.cat.title %>についてのお問い合わせ</h1>
-
-<aside class="col-lg-12">
-  <!-- 省略 -->
-  <%# if !current_user?(@user) && logged_in? %>
-    <section class="message_box">
+<aside class="col-lg-12" style="padding: 0px;">
+<h2 class="text-center" style="height: 50px;"><%= @room.cat.title %>についてのお問い合わせ</h2>
+  <%# if current_user? && logged_in? %>
+    <section class="message_box" style="background-color: white;border: none;">
       <div id="messages">
         <%= render @messages %>
       </div>

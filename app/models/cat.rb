@@ -1,5 +1,7 @@
 class Cat < ApplicationRecord
 
+MAX_CAT_IMAGES_LENGTH = 5
+
 #論理削除
 acts_as_paranoid
 
@@ -28,6 +30,8 @@ has_many :rooms
   validates :spay_and_neuter,presence: true
   validates :vaccine,presence: true
   validates :individual_or_corporate,presence: true
+
+  validates :cat_images, length: {maximum: MAX_CAT_IMAGES_LENGTH}
 
 #enum記述
 enum prefecture: {

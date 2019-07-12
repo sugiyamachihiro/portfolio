@@ -52,6 +52,10 @@
 		          </div>
 
 		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
+		            <%= f.text_field :profession, autocomplete: "profession", class: "form-control", placeholder: "profession", style:"width: 500px;"%>
+		          </div>
+
+		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
 		            <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "email", style:"width: 500px;"%>
 		          </div>
 
@@ -69,7 +73,7 @@
 
                 <div class="buttongroup" style="margin-left: -15px;">
 		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 250px;" %>
-		          <%= link_to "退会", user_path(@user), class: "btn btn-danger  col-lg-6 destroy_#{@user.id}", style: "margin-top: 10px;width: 250px;", method: :delete %>
+		          <%= link_to "退会", user_path(@user), class: "btn btn-danger  col-lg-6 destroy_#{@user.id}", style: "margin-top: 10px;width: 250px;", method: :delete, data:{confirm:"本当に退会しますか？"} %>
 		        </div>
 		    <% end %>
 		    <ul>

@@ -1,4 +1,5 @@
 class InquiryRoomsController < ApplicationController
+	before_action :authenticate_user!
 
 	def show
 		@inquiry_room = InquiryRoom.find_by(user_id: current_user.id,id: params[:id] )

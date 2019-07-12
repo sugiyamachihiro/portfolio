@@ -1,2 +1,19 @@
-<h1>InquiryRooms#show</h1>
-<p>お問い合わせチャット</p>
+<aside class="col-lg-12" style="padding: 0px;">
+<h2 class="text-center" style="height: 50px;">お問い合わせ</h2>
+    <section class="message_box" style="background-color: white;border: none;">
+      <div id="messages">
+      </div>
+    </section>
+
+    <script type="text/javascript">
+      var height = 0;
+      $("div.message").each( function() {
+        height += ($(this).height());
+      });
+      $('section.message_box').scrollTop(height);
+    </script>
+
+    <div class="message_form">
+    </div>
+
+</aside>

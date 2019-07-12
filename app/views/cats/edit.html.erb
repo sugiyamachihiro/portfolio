@@ -96,18 +96,18 @@
 			            </div>
 
                        <div class="cat-images-delete" style="margin-top: 0px;">
-　　　　　　　　　　　　　　<% @cat.cat_images.each do |image| %>
-			                <div class="form-control" style="height: 120px;margin-top: 0px;">
-								<%= attachment_image_tag image, :image, :fill, 100, 100 %>
-								<%= link_to "削除", cat_cat_image_path(cat_id: @cat.id, id: image.id), class: "btn btn-danger", style: "margin-top: 10px;width: 250px;", method: :delete %>
+			                <div class="form-control" style="height: 120px;padding: 15px 0 0 20px;">
+			                	<% @cat.cat_images.each do |image| %>
+									<%= attachment_image_tag image, :image, :fill, 90, 90 %>
+									<%= link_to "×", cat_cat_image_path(cat_id: @cat.id, id: image.id), class: "btn btn-danger", style: "border-radius: 50%;margin-top: -75px;margin-left: -30px;", method: :delete, data:{confirm:"本当に削除しますか？"} %>
+								<% end %>
 							</div>
-						<% end %>
                         </div>
                     </div>
 
                 <div class="buttongroup">
 		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 277px;" %>
-		          <%= link_to "削除", cat_path(@cat), class: "btn btn-danger  col-lg-6 destroy_#{@cat.id}", style: "margin-top: 10px;width: 277px;", method: :delete %>
+		          <%= link_to "削除", cat_path(@cat), class: "btn btn-danger  col-lg-6 destroy_#{@cat.id}", style: "margin-top: 10px;width: 277px;", method: :delete, data:{confirm:"本当に削除しますか？"} %>
 		        </div>
 			    <% end %>
 

@@ -26,7 +26,7 @@
            <div class="center-block" style="padding: 0 0 25px 0;">
              <nav class="nav navbar-nav navbar-left" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
                    <%=link_to cats_path, :style=>"color:#777;text-decoration: none;" do %>
-                   <h3>portfolio</h3>
+                   <h2 class="title">きゃぴねす</h2>
                    <% end %>
              </nav>
            </div>
@@ -38,10 +38,19 @@
                       <%= link_to 'about', about_path %>
                     </li>
                     <li>
-                      <%= link_to 'How to Cat?', aboutcat_path %>
+                      <%= link_to 'About Cat?', aboutcat_path %>
                     </li>
                     <li>
                      <%= link_to  '', user_path(current_user.id), class: "glyphicon glyphicon-user navbar-link" %>
+                    </li>
+                    <li>
+                      <div class="inquirylink">
+                        <%= form_for(InquiryRoom.new, url:  user_inquiry_rooms_path(current_user.id), method: :post) do |f| %>
+                             <%= f.hidden_field :user_id, :value => current_user.id %>
+                             <%= f.submit "お問い合わせ", class: "btn btn-default" %>
+                             <i class="far fa-envelope"></i>
+                        <% end %>
+                      </div>
                     </li>
                     <li>
                       <%= link_to 'logout', destroy_user_session_path, method: :delete %>
@@ -57,7 +66,7 @@
             <div class="center-block" style="padding: 0 0 25px 0;">
              <nav class="nav navbar-nav navbar-left" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
                    <%=link_to root_path, :style=>"color:#777;text-decoration: none;" do %>
-                   <h3>portfolio</h3>
+                   <h2 class="title">きゃぴねす</h2>
                    <% end %>
              </nav>
            </div>
@@ -69,7 +78,7 @@
                       <%= link_to 'about', about_path %>
                     </li>
                     <li>
-                      <%= link_to 'How to Cat?', aboutcat_path %>
+                      <%= link_to 'About Cat?', aboutcat_path %>
                     </li>
                 </ul>
               </div>
@@ -87,34 +96,6 @@
     </div>
 
     <footer>
-
-      <% if user_signed_in? %>
-          <div class="container">
-            <div class="row">
-               <div class="col-xs-3 col-xs-offset-9" style="margin-top: 100px">
-                <p>CopyRight ねこのきもち.inc</p>
-
-                <div class="inquirylink">
-                  <%= form_for(InquiryRoom.new, url:  user_inquiry_rooms_path(current_user.id), method: :post) do |f| %>
-                       <%= f.hidden_field :user_id, :value => current_user.id %>
-                       <%= f.submit "お問い合わせ", class: "btn btn-default" %>
-                  <% end %>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-      <% else %>
-            <div class="container">
-              <div class="row">
-                 <div class="col-xs-3 col-xs-offset-9" style="margin-top: 100px">
-                  <p>CopyRight ぬこのきもち.inc</p>
-                </div>
-              </div>
-            </div>
-      <% end %>
-
     </footer>
 
   </body>

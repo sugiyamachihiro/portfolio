@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :admins do
+    get 'users/index'
+    get 'users/show'
+    get 'users/update'
+    get 'users/destroy'
+  end
   get 'inquiry_rooms/show'
   root 'home#home'
   get  'about' => 'home#about'
@@ -25,6 +31,17 @@ devise_for :users, controllers: {
       resource :favorites, only: [:create, :destroy]
     end
     resources :rooms
+
+    namespace :admins do
+    resources :users
+    resources :cats
+  end
+
+    resources :admins do
+      collection do
+        get :home
+    end
+  end
 
 #actioncable
 mount ActionCable.server => '/cable'

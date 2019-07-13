@@ -1,6 +1,17 @@
+require 'happybirthday'
+class EighteenValidator < ActiveModel::EachValidator
+def validate_each(record, attribute, value) # バリデーションメソッド
+    year_old = Happybirthday.born_on(value.year.to_s + '/' + value.month.to_s + '/' + value.day.to_s).age.years_old
+    p year_old
+    if year_old.to_i < 18
+        record.errors.add(attribute, "18歳未満は登録できません")
+    end
+end
+end
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+#validate :over_eightteen
 devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -23,19 +34,20 @@ has_many :sent_messages, through: :from_messages, source: :from
 has_many :received_messages, through: :to_messages, source: :to
 
 # Send message to other user
-def send_message(other_user, room_id, content)
-  from_messages.create!(to_id: other_user.id, room_id: room_id, content: content)
+def send_message(room_id, content)
+  from_messages.create!(room_id: room_id, content: content)
 end
 
 #validation記述
   validates :nick_name,presence: true, length:{ in: 1..50 }
   validates :user_name,presence: true, length:{ in: 1..50 }
   validates :sex,presence: true
-  validates :birthday,presence: true
+  validates :birthday,presence: true,eighteen: true
   validates :postalcode,presence: true, length:{is:7},format:{with:/\A[0-9]+\z/ ,message:'は数字で入力してください。'}
   validates :prefecture,presence: true
   validates :address,presence: true
   validates :telephone_number,presence: true,length:{ in: 9..20 },format:{with:/\A[0-9]+\z/ ,message:'は数字で入力してください。'}
+
 
 #enum記述
 enum prefecture: {

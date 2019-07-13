@@ -74,3 +74,4 @@ gem 'select2-rails'
 gem 'enum_help'
 gem 'pry-rails'
 gem "cocoon"
+gem 'happybirthday', '~> 1.0'

@@ -1,16 +1,11 @@
 class Message < ApplicationRecord
 
 belongs_to :from, class_name: "User"
-belongs_to :to, class_name: "User"
-
-# Scopes
-default_scope -> {order(created_at: :asc)}
 
 # Validations
 validates :from_id, presence: true
-validates :to_id, presence: true
 validates :room_id, presence: true
-validates :content, presence: true, length: {maximum: 200}
+validates :content, presence: true, length: {maximum: 500}
 
 # Callbacks
 after_create_commit { MessageBroadcastJob.perform_later self }

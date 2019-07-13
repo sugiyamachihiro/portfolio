@@ -3,8 +3,12 @@ class RoomsController < ApplicationController
 
 	def show
 		@room = Room.find(params[:id])
-		@user = current_user
 		@messages = Message.where(room_id: @room.id)
+		if current_user.id == @room.cat.user.id
+		elsif current_user.id == @room.user.id
+		else
+           redirect_to user_path(@user.id)
+        end
 	end
 
 	def create

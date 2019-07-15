@@ -5,7 +5,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 def after_sign_in_path_for(resource)
    case resource
    when Admin
-     cats_path
+     home_admins_path
    when User
      cats_path
    end

@@ -2,6 +2,9 @@ class Message < ApplicationRecord
 
 belongs_to :from, class_name: "User"
 
+# Scopes
+default_scope -> {order(created_at: :asc)}
+
 # Validations
 validates :from_id, presence: true
 validates :room_id, presence: true

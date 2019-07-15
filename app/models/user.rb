@@ -25,18 +25,29 @@ has_many :favorites, dependent: :destroy
 has_many :favorite_cats, through: :favorites, source: :cat
 
 #chat関連記述
-has_many :rooms
-has_many :from_messages, class_name: "Message",
-          foreign_key: "from_id", dependent: :destroy
-has_many :to_messages, class_name: "Message",
-          foreign_key: "to_id", dependent: :destroy
-has_many :sent_messages, through: :from_messages, source: :from
-has_many :received_messages, through: :to_messages, source: :to
+    has_many :rooms
+    has_many :from_messages, class_name: "Message",
+              foreign_key: "from_id", dependent: :destroy
+    has_many :to_messages, class_name: "Message",
+              foreign_key: "to_id", dependent: :destroy
+    has_many :sent_messages, through: :from_messages, source: :from
+    has_many :received_messages, through: :to_messages, source: :to
 
-# Send message to other user
-def send_message(room_id, content)
-  from_messages.create!(room_id: room_id, content: content)
-end
+    # Send message to other user
+    def send_message(room_id, content)
+      from_messages.create!(room_id: room_id, content: content)
+    end
+
+#inquirychat関連記述
+    belongs_to :inquiry_room
+    has_many :from_inquiry_messages, class_name: "InquiryMessage",
+              foreign_key: "from_id", dependent: :destroy
+    has_many :sent_inquiry_messages, through: :from_inquiry_messages, source: :from
+
+    # Send message to other user
+    def send_inquiry_message(inquiry_room_id, adminflag, content)
+      from_inquiry_messages.create!(inquiry_room_id: inquiry_room_id, content: content, adminflag: adminflag)
+    end
 
 #validation記述
   validates :nick_name,presence: true, length:{ in: 1..50 }

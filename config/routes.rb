@@ -35,6 +35,7 @@ devise_for :users, controllers: {
     namespace :admins do
     resources :users
     resources :cats
+    resources :inquiry_rooms
   end
 
     resources :admins do

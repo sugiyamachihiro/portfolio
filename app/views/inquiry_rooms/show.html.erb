@@ -1,7 +1,10 @@
 <aside class="col-lg-12" style="padding: 0px;">
 <h2 class="text-center" style="height: 50px;">お問い合わせ</h2>
     <section class="message_box" style="background-color: white;border: none;">
-      <div id="messages">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div id="inquiry_messages">
+          <%= render 'inquiry_messages/inquiry_message' %>
+        </div>
       </div>
     </section>
 
@@ -14,6 +17,13 @@
     </script>
 
     <div class="message_form">
+      <% if current_user == nil %>
+       <%= render 'inquiry_messages/inquiry_message_form',
+       {from_user: current_admin, inquiry_room_id: @inquiry_room.id } %>
+      <% else %>
+       <%= render 'inquiry_messages/inquiry_message_form',
+       {from_user: current_user, inquiry_room_id: @inquiry_room.id } %>
+      <% end %>
     </div>
 
 </aside>

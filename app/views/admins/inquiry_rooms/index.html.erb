@@ -1,0 +1,19 @@
+<div class="container">
+	<h3><strong>inquiry_room一覧</strong></h3>
+	<table class="table table-bordered">
+		<thead>
+			<tr >
+				<th>No</th>
+				<th>ユーザー名</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @inquiry_rooms.each do |inquiry_room| %>
+			<tr>
+				<td><%= link_to user_inquiry_room_path(inquiry_room.user.id, inquiry_room.id), :style=>"color:#777;text-decoration: none;" do %><%= inquiry_room.id %><% end %></td>
+				<td><%= inquiry_room.user.nick_name %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

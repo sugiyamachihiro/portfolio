@@ -1,0 +1,16 @@
+<form class="message_form">
+  <input type="hidden" name="from_id" value="<%= from_user.id %>">
+  <input type="hidden" name="inquiry_room_id" value="<%= inquiry_room_id %>">
+  <% if admin_signed_in? %>
+	  <input type="hidden" name="adminflag" id="adminflag" value="1">
+  <% else %>
+	  <input type="hidden" name="adminflag" id="adminflag" value="0">
+ <% end %>
+  <div class="col-lg-6 col-lg-offset-3">
+	  <input class="input-text" type="text" name="content" placeholder="Aa" data-behavior="chat_speaker" style="height: 50px;width: 550px;">
+	  <button id="send_inquiry" type="button" name="test" data-behavior="test" style="height: 45px;width: 45px;color: #777;">
+	  	<i class="fas fa-location-arrow"></i>
+	  </button>
+  </div>
+
+</form>

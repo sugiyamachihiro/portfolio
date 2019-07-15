@@ -1,5 +1,4 @@
 class CatsController < ApplicationController
-    before_action :authenticate_user!
 
     def index
         @search = Cat.search(params[:q])

@@ -10,7 +10,7 @@
     <script src="jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
     <link rel="stylesheet" href="style.css">
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
@@ -47,7 +47,8 @@
                       <div class="inquirylink">
                         <%= form_for(InquiryRoom.new, url:  user_inquiry_rooms_path(current_user.id), method: :post) do |f| %>
                              <%= f.hidden_field :user_id, :value => current_user.id %>
-                             <%= f.submit "お問い合わせ", class: "btn btn-default" %>
+                             <%#= f.submit "お問い合わせ", class: "btn btn-default" %>
+                             <button name="button" type="submit">Button</button>
                              <i class="far fa-envelope"></i>
                         <% end %>
                       </div>

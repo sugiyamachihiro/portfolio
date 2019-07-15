@@ -1,8 +1,8 @@
 class InquiryRoomsController < ApplicationController
-	before_action :authenticate_user!
 
 	def show
-		@inquiry_room = InquiryRoom.find_by(user_id: current_user.id,id: params[:id] )
+		@inquiry_room = InquiryRoom.find(params[:id])
+        @messages = InquiryMessage.all
 	end
 
   	def create
@@ -12,7 +12,7 @@ class InquiryRoomsController < ApplicationController
 		else
 			@inquiry_room = InquiryRoom.new(user_id: current_user.id)
 			@inquiry_room.save
-			redirect_to user_inquiry_room_path(@inquiry_room)
+			redirect_to user_inquiry_room_path(@inquiry_room.id)
 		end
 	end
 

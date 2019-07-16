@@ -1,6 +1,6 @@
 require 'happybirthday'
 class EighteenValidator < ActiveModel::EachValidator
-def validate_each(record, attribute, value) # バリデーションメソッド
+def validate_each(record, attribute, value)
     year_old = Happybirthday.born_on(value.year.to_s + '/' + value.month.to_s + '/' + value.day.to_s).age.years_old
     p year_old
     if year_old.to_i < 18
@@ -28,10 +28,7 @@ has_many :favorite_cats, through: :favorites, source: :cat
     has_many :rooms
     has_many :from_messages, class_name: "Message",
               foreign_key: "from_id", dependent: :destroy
-    has_many :to_messages, class_name: "Message",
-              foreign_key: "to_id", dependent: :destroy
     has_many :sent_messages, through: :from_messages, source: :from
-    has_many :received_messages, through: :to_messages, source: :to
 
     # Send message to other user
     def send_message(room_id, content)
@@ -39,15 +36,7 @@ has_many :favorite_cats, through: :favorites, source: :cat
     end
 
 #inquirychat関連記述
-    belongs_to :inquiry_room
-    has_many :from_inquiry_messages, class_name: "InquiryMessage",
-              foreign_key: "from_id", dependent: :destroy
-    has_many :sent_inquiry_messages, through: :from_inquiry_messages, source: :from
-
-    # Send message to other user
-    def send_inquiry_message(inquiry_room_id, adminflag, content)
-      from_inquiry_messages.create!(inquiry_room_id: inquiry_room_id, content: content, adminflag: adminflag)
-    end
+  belongs_to :inquiry_room
 
 #validation記述
   validates :nick_name,presence: true, length:{ in: 1..50 }
@@ -72,12 +61,12 @@ enum prefecture: {
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
+enum profession: {
+  会社員:1,公務員:2,"経営・役員":3,自営業:4,専業主婦:5,"パート・アルバイト":6,学生:7,その他:8
+}
+
 enum sex: {
     男:1,女:2
   }
 
-  acts_as_paranoid
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
 end

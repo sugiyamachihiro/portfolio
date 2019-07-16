@@ -59,7 +59,6 @@
 	          <thead>
 	          <tr>
 	                <th></th>
-	                <th>yyyy/mm/dd</th>
 	                <th>title</th>
 	                <th>prefecture</th>
 	                <th>status</th>
@@ -75,7 +74,6 @@
 						        <% end %>
 						<% end %>
 	                </td>
-	                <td></td>
 	                <td><%= room.cat.title %></td>
 	                <td><%= room.cat.prefecture %></td>
 	                <td><%= room.cat.cat_status %></td>
@@ -105,14 +103,14 @@
 	          <% @cats.each do |cat| %>
 	          <tr>
 	                <td>
-						<%= link_to cat_path(cat.id) do %>
+						<%= link_to room_path do %>
 							<% cat.cat_images.first(1).each do |image| %>
 							  <%= attachment_image_tag image, :image, :fill, 50, 50 %>
 							<% end %>
 						<% end %>
 	                </td>
 	                <td><%= cat.created_at.strftime('%Y/%m/%d') %></td>
-	                <td><%= cat.title %></td>
+	                <td><%= link_to cat_path(cat.id) do %><%= cat.title %><% end %></td>
 	                <td><%= cat.prefecture %></td>
 	                <td><%= cat.cat_status %></td>
 	          </tr>

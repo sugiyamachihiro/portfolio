@@ -1,0 +1,51 @@
+<div class="container">
+	<h3><strong>猫一覧</strong></h3>
+	<table class="table table-bordered">
+		<thead>
+			<tr >
+				<th>No</th>
+				<th>投稿者</th>
+				<th style="text-align: center;">
+				  タイトル
+				</th>
+				<th style="text-align: center;">
+				  地域
+				</th>
+				<th style="text-align: center;">
+				  品種
+				</th>
+				<th style="text-align: center;" >
+				  投稿日
+				</th>
+				<th style="text-align: center;" >
+				  ステータス
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @cats.each do |cat| %>
+			<tr>
+				<td><%= cat.id %></td>
+				<td>
+					<p>user_id:<%= cat.user.id %></p>
+                    <%= cat.user.nick_name %><br>
+				</td>
+				<td><%= cat.title %></td>
+				<td><%= cat.prefecture %></td>
+				<td><%= cat.kind %></td>
+				<td><%= cat.created_at.strftime('%Y/%m/%d') %></td>
+				<td>
+					<% if cat.deleted_at == nil %>
+					  <p>投稿あり</p>
+				    <% else %>
+				      <p>投稿削除済み</p>
+				    <% end %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<div class="text-center">
+	<%= paginate @cats, class: "paginate" %>
+</div>

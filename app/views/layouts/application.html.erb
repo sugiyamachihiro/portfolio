@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style="padding: 0px;">
   <head>
-    <title>Portfolio</title>
+    <title>さとねこ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="current-user_id" content='<%= current_user.id if current_user %>'>
@@ -21,12 +21,32 @@
     <div class="row">
     <div class="col-md-12">
 
-        <% if user_signed_in? %>
+ <% if user_signed_in? && admin_signed_in?  %>
 
            <div class="center-block" style="padding: 0 0 25px 0;">
              <nav class="nav navbar-nav navbar-left" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
                    <%=link_to cats_path, :style=>"color:#777;text-decoration: none;" do %>
-                   <h2 class="title">きゃぴねす</h2>
+                   <h2 class="title">さとねこ</h2>
+                   <% end %>
+             </nav>
+           </div>
+
+             <nav class="nav navbar-nav navbar-right" style="padding: 0 0 0 0;">
+              <div id="slidemenu">
+                <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn" style="padding: 0 0 0 0;" >
+                    <li>
+                      <%= link_to 'logout', destroy_admin_session_path, method: :delete %>
+                    </li>
+                </ul>
+              </div>
+             </nav>
+
+ <% elsif user_signed_in? %>
+
+           <div class="center-block" style="padding: 0 0 25px 0;">
+             <nav class="nav navbar-nav navbar-left" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+                   <%=link_to cats_path, :style=>"color:#777;text-decoration: none;" do %>
+                   <h2 class="title">さとねこ</h2>
                    <% end %>
              </nav>
            </div>
@@ -60,14 +80,12 @@
               </div>
              </nav>
 
-        <% end %>
+<% elsif admin_signed_in? %>
 
-        <% unless user_signed_in? %>
-
-            <div class="center-block" style="padding: 0 0 25px 0;">
+           <div class="center-block" style="padding: 0 0 25px 0;">
              <nav class="nav navbar-nav navbar-left" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
-                   <%=link_to root_path, :style=>"color:#777;text-decoration: none;" do %>
-                   <h2 class="title">きゃぴねす</h2>
+                   <%=link_to cats_path, :style=>"color:#777;text-decoration: none;" do %>
+                   <h2 class="title">さとねこ</h2>
                    <% end %>
              </nav>
            </div>
@@ -76,16 +94,13 @@
               <div id="slidemenu">
                 <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn" style="padding: 0 0 0 0;" >
                     <li>
-                      <%= link_to 'about', about_path %>
-                    </li>
-                    <li>
-                      <%= link_to 'About Cat?', aboutcat_path %>
+                      <%= link_to '', destroy_admin_session_path, class: "glyphicon glyphicon-log-out navbar-link", style: "padding: 0 0 0 0;margin-top: 10px;", method: :delete %>
                     </li>
                 </ul>
               </div>
              </nav>
 
-          <% end %>
+<% end %>
 
     </div>
     </div>

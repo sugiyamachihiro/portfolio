@@ -16,7 +16,7 @@
       $('section.message_box').scrollTop(height);
     </script>
 
-    <div class="message_form">
+    <div class="message_form" style="padding-top: 30px;">
      <%= render 'messages/message_form',
        {from_user: current_user, room_id: @room.id} %>
     </div>

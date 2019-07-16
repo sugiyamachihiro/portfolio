@@ -1,2 +1,56 @@
-<h1>Admins::Users#index</h1>
-<p>Find me in app/views/admins/users/index.html.erb</p>
+<div class="container">
+	<h3><strong>会員一覧</strong></h3>
+	<table class="table table-bordered">
+		<thead>
+			<tr >
+				<th>No</th>
+				<th>ニックネーム</th>
+				<th style="text-align: center;">
+				  性別
+				</th>
+				<th style="text-align: center;">
+				  生年月日
+				</th>
+				<th style="text-align: center;">
+				  地域
+				</th>
+				<th style="text-align: center;">
+				  電話番号
+				</th>
+				<th style="text-align: center;" >
+				  email
+				</th>
+				<th style="text-align: center;" >
+				  会員登録日
+				</th>
+				<th style="text-align: center;" >
+				  ユーザーステータス
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+			<tr>
+				<td><%= user.id %></td>
+				<td><%= user.nick_name %></td>
+				<td><%= user.sex %></td>
+				<td><%= user.birthday %></td>
+				<td><%= user.prefecture %></td>
+				<td><%= user.telephone_number %></td>
+				<td><%= user.email %></td>
+				<td><%= user.created_at.strftime('%Y/%m/%d') %></td>
+				<td>
+					<% if user.deleted_at == nil %>
+					  <p>入会</p>
+				    <% else %>
+				      <p>退会</p>
+				    <% end %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<div class="text-center">
+	<%= paginate @users, class: "paginate" %>
+</div>

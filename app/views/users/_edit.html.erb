@@ -52,7 +52,7 @@
 		          </div>
 
 		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
-		            <%= f.text_field :profession, autocomplete: "profession", class: "form-control", placeholder: "profession", style:"width: 500px;"%>
+		            <%= f.select :profession, User.professions.keys, {prompt: 'profession'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;width: 500px;" %>
 		          </div>
 
 		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">

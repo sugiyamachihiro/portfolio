@@ -21,27 +21,25 @@
 		                <th>title</th>
 		                <th>nickname</th>
 		                <th>chat start day</th>
-		                <th>chat update day</th>
 		          </tr>
 		          </thead>
 		          <tbody>
 		          <% @fromrooms.each do |room| %>
 		          <tr>
 		                <td>
-							<%= link_to room_path do %>
+							<%= link_to cat_path(room.cat.id) do %>
 								<% room.cat.cat_images.first(1).each do |image| %>
 								  <%= attachment_image_tag image, :image, :fill, 50, 50 %>
 								<% end %>
 							<% end %>
 		                </td>
 		                <td>
-		                	<%= link_to cat_path(room.cat.id) do %>
+		                	<%= link_to room_path do %>
 		                	  <%= room.cat.title %>
 		                	<% end %>
 		                </td>
-		                <td><%#= room.cat.user.nickname %></td>
+		                <td><%= room.cat.user.nick_name %></td>
 		                <td><%= room.created_at.strftime('%Y/%m/%d') %></td>
-		                <td><%= room.updated_at.strftime('%Y/%m/%d') %></td>
 		          </tr>
 		          <% end %>
 		          </tbody>
@@ -57,7 +55,6 @@
 		                <th>title</th>
 		                <th>nickname</th>
 		                <th>chat start day</th>
-		                <th>chat update day</th>
 		          </tr>
 		          </thead>
 		          <tbody>
@@ -65,20 +62,19 @@
 		          <% cat.rooms.each do |room| %>
 		          <tr>
 		                <td>
-							<%= link_to room_path do %>
+							<%= link_to cat_path(room.cat.id) do %>
 								<% room.cat.cat_images.first(1).each do |image| %>
 								  <%= attachment_image_tag image, :image, :fill, 50, 50 %>
 								<% end %>
 							<% end %>
 		                </td>
 		                <td>
-		                	<%= link_to cat_path(room.cat.id) do %>
+		                	<%= link_to room_path do %>
 		                	  <%= room.cat.title %>
 		                	<% end %>
 		                </td>
-		                <td><%#= room.cat.user.nickname %></td>
+		                <td><%= room.user.nick_name %></td>
 		                <td><%= room.created_at.strftime('%Y/%m/%d') %></td>
-		                <td><%= room.updated_at.strftime('%Y/%m/%d') %></td>
 		          </tr>
 		          <% end %>
 		          <% end %>

@@ -2,7 +2,7 @@ class InquiryRoomsController < ApplicationController
 
 	def show
 		@inquiry_room = InquiryRoom.find(params[:id])
-        @messages = InquiryMessage.all
+        @messages = InquiryMessage.where(inquiry_room_id: @inquiry_room.id)
 	end
 
   	def create

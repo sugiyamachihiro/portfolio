@@ -1,5 +1,13 @@
-<h1>admin#home</h1>
+ <div class="container">
+	<div class="row">
+	<div class="d-inline-block col-lg-8 col-lg-offset-2" style="margin-top: 50px;">
+      <div class="block-center">
+		 <%= link_to "会員一覧", admins_users_path, class: "btn btn-secondary col-md-3", :style=>"background-color: #777;color: white;margin: 10px 10px 10px 10px;" %>
 
-  <%= link_to "inquiry_rooms", admins_inquiry_rooms_path, class: "btn btn-secondary col-md-3", :style=>"background-color: #777;color: white;margin: 10px 10px 10px 10px;" %>
+		 <%= link_to "猫一覧", admins_cats_path, class: "btn btn-secondary col-md-3", :style=>"background-color: #777;color: white;margin: 10px 10px 10px 10px;" %>
 
- <%= link_to '', destroy_admin_session_path, class: "glyphicon glyphicon-log-out navbar-link", style: "padding: 0 0 0 0;", method: :delete %>
+		 <%= link_to "お問い合わせ一覧", admins_inquiry_rooms_path, class: "btn btn-secondary col-md-3", :style=>"background-color: #777;color: white;margin: 10px 10px 10px 10px;" %>
+	  </div>
+    </div>
+    </div>
+</div>

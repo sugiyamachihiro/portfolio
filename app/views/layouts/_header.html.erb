@@ -1,0 +1,36 @@
+<% unless user_signed_in? %>
+<header class="navbar navbar-fixed-top navbar-default", style="background-color: #ffe4e1;border-color: white;padding: 0 0 0 0;min-height: 80px;">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+           <div class="center-block" style="padding: 0 0 25px 0;">
+             <nav class="nav navbar-nav navbar-left" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+                   <%=link_to root_path, :style=>"color:#777;text-decoration: none;" do %>
+                   <h2 class="title">さとねこ</h2>
+                   <% end %>
+             </nav>
+           </div>
+
+             <nav class="nav navbar-nav navbar-right" style="padding: 0 0 0 0;">
+              <div id="slidemenu">
+                <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn" style="padding: 0 0 0 0;" >
+                    <li>
+                      <%= link_to 'about', about_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'About Cat?', aboutcat_path %>
+                    </li>
+                    <li>
+                      <%= link_to "", new_user_session_path, class: "glyphicon glyphicon-log-in sign_in",  style: "padding: 15px;"  %>
+                    </li>
+                    <li>
+                      <%= link_to "", new_user_registration_path, class: "glyphicon glyphicon-edit sign_up", style: "padding: 15px;"  %>
+                    </li>
+                </ul>
+              </div>
+             </nav>
+    </div>
+    </div>
+  </div>
+</header>
+<% end %>

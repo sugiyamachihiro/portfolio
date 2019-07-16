@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :admins do
+    get 'cats/index'
+    get 'cats/show'
+  end
+  namespace :admins do
     get 'users/index'
     get 'users/show'
     get 'users/update'

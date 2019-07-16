@@ -2,7 +2,7 @@
 <div class="message" data-session="<%= session[:user_id] %>">
   <% user = User.find_by(id: message.from_id) %>
   <div class="<%= (message.from_id == current_user.id) ? "message_right" : "message_left" %>" style="margin: 20px 0 20px 0;width: 100%;" >
-    <span class="<%= (message.from_id == current_user.id) ? "message__right" : "message__left" %>" id="message_content" style="" ><%= message.content%></span></div>
-    <% end %>
+    <span class="<%= (message.from_id == current_user.id) ? "message__right" : "message__left" %>" id="message_content" style="" ><%= message.content%></span>
   </div>
+<% end %>
 </div>

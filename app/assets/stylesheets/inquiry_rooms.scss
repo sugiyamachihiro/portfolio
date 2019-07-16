@@ -3,6 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 */
 
+section.message_box {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  overflow: scroll;
+  height: 450px;
+}
+
 .message_right{
   text-align: right;
   font-size: 30px;

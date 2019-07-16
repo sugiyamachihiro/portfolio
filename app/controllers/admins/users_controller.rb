@@ -1,7 +1,7 @@
 class Admins::UsersController < ApplicationController
   def index
   	@user = User.unscoped.all
-    @users = @user.page(params[:page]).reverse_order.per(20)
+    @users = @user.page(params[:page]).per(20)
   end
 
   def show

@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+before_action :authenticate_user!
 
     def index
         @search = Cat.search(params[:q])
@@ -19,8 +20,13 @@ class CatsController < ApplicationController
     	@user = current_user
     	@cat = Cat.new(cat_params)
     	@cat.user_id = current_user.id
-        @cat.save
-        redirect_to  cat_path(@cat), notice: '里親の募集を開始しました'
+        if @cat.save
+            flash[:notice] = "里親の募集を開始しました"
+            redirect_to  cat_path(@cat)
+        else
+            flash[:alert] = "投稿に失敗しました。"
+            render :new
+        end
     end
 
     def edit

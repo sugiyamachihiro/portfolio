@@ -4,7 +4,7 @@ def validate_each(record, attribute, value)
     year_old = Happybirthday.born_on(value.year.to_s + '/' + value.month.to_s + '/' + value.day.to_s).age.years_old
     p year_old
     if year_old.to_i < 18
-        record.errors.add(attribute, "18歳未満は登録できません")
+        record.errors.add(attribute, "does not meet 18 years old")
     end
 end
 end
@@ -35,18 +35,15 @@ has_many :favorite_cats, through: :favorites, source: :cat
       from_messages.create!(room_id: room_id, content: content)
     end
 
-#inquirychat関連記述
-  belongs_to :inquiry_room
-
 #validation記述
   validates :nick_name,presence: true, length:{ in: 1..50 }
   validates :user_name,presence: true, length:{ in: 1..50 }
   validates :sex,presence: true
   validates :birthday,presence: true,eighteen: true
-  validates :postalcode,presence: true, length:{is:7},format:{with:/\A[0-9]+\z/ ,message:'は数字で入力してください。'}
+  validates :postalcode,presence: true, length:{is:7},format:{with:/\A[0-9]+\z/}
   validates :prefecture,presence: true
   validates :address,presence: true
-  validates :telephone_number,presence: true,length:{ in: 9..20 },format:{with:/\A[0-9]+\z/ ,message:'は数字で入力してください。'}
+  validates :telephone_number,presence: true,length:{ in: 9..20 },format:{with:/\A[0-9]+\z/}
 
 
 #enum記述

@@ -2,30 +2,40 @@
 	<div class="row">
 	<div class="d-inline-block col-lg-8 col-lg-offset-2">
 
-		<h3 class="" style="margin-left: 15px;"><strong><%= @cat.title %></strong></h3>
+		<h3 class="" style="margin: 40px 15px 20px 15px;"><strong><%= @cat.title %></strong></h3>
+
+			<% if notice %>
+		        <div class="alert alert-success alert-dismissible" role="alert">
+		          <button type="button" class="close" data-dismiss="alert">
+		          	<span aria-hidden="true">&times;</span>
+		            <span class="sr-only">close</span>
+		          </button>
+		          <%= notice %>
+		        </div>
+		    <% end %>
 
         <div class="col-lg-6">
         	<!-- 基本情報 -->
 			<table class="table-narrow table-bordered" style="background-color: white;color: #777;">
 				<tbody>
 					<tr class="border-bottom"><th  colspan="5">基本情報</th></tr>
-					<tr><td class="title">ID</td><td colspan="3"><%= @cat.id %></td></tr>
-					<tr><td class="title">種類</td><td colspan="3"><%= @cat.kind %></td></tr>
+					<tr><td class="">ID</td><td colspan="3"><%= @cat.id %></td></tr>
+					<tr><td class="">種類</td><td colspan="3"><%= @cat.kind %></td></tr>
 	　　　　　　　　　 <tr>
-	                    <td width="25%" class="title">年齢期</td>
+	                    <td width="25%" class="">年齢期</td>
 	                    <td width="25%"><%= @cat.age %></td>
-	                    <td width="25%" class="title">年齢詳細</td>
+	                    <td width="25%" class="">年齢詳細</td>
 	                    <td width="25%" colspan="3"><%= @cat.age_detail %></td>
 	                </tr>
 	                <tr>
-	                    <td width="25%" class="title">ワクチン</td>
+	                    <td width="25%" class="">ワクチン</td>
 	                    <td width="25%"><%= @cat.vaccine %></td>
-	                    <td width="25%" class="title">避妊去勢</td>
+	                    <td width="25%" class="">避妊去勢</td>
 	                    <td width="25%" colspan="3"><%= @cat.spay_and_neuter %></td>
 	                </tr>
-					<tr><td class="title">個人/法人</td>
+					<tr><td class="">個人/法人</td>
 						<td colspan=""><%= @cat.individual_or_corporate %></td>
-                        <td class="title">地域</td>
+                        <td class="">地域</td>
                         <td colspan="3"><%= @cat.prefecture %></td>
 					</tr>
 				</tbody>
@@ -35,9 +45,9 @@
 			<table class="table-narrow table-bordered w100" style="background-color: white;color: #777;">
 				<tbody>
 					<tr class="border-bottom"><th  colspan="3">投稿者情報</th></tr>
-					<tr><td class="title">ID</td><td colspan="3"><%= @cat.user_id %></td></tr>
+					<tr><td class="">ID</td><td colspan="3"><%= @cat.user_id %></td></tr>
 					<tr>
-						<td class="title">ニックネーム</td>
+						<td class="">ニックネーム</td>
 						<td colspan="3">
 							<%= link_to user_path(@cat.user_id) do %>
 							<%= @cat.user.nick_name %>
@@ -45,32 +55,40 @@
 						</td>
 					</tr>
 	　　　　　　　　　 <tr>
-	                    <td class="title">性別</td><td colspan="3"><%= @cat.user.sex %></td>
+	                    <td class="">性別</td><td colspan="3"><%= @cat.user.sex %></td>
 	                </tr>
 				</tbody>
 			</table>
 
-<% unless @cat.user_id == current_user.id %>
-    		<!-- お気に入り -->
-    		　　<div class="col-lg-6" style="margin-top: 20px;">
-					<div id="favorite_btn" >
-					 <%= render 'favorite_form', cat: @cat, favorite: @favorite %>
-					</div>
-			   </div>
+			<% if @cat.user_id == current_user.id %>
 
-            <!-- 問合せ -->
-            <div class="col-lg-6">
-		            <div class="messagelink">
-					  <%#= link_to "お問い合わせ", cats_path, style: " border-radius: 45%;",class: "btn btn-default" %>
-				          <%= form_for @room do |f| %>
-				           		 <%= f.hidden_field :cat_id, :value => @cat.id %>
-				       		     <%= f.submit "お問い合わせ", class: "btn btn-default", :style=>"width: 150px;" %>
-				          <% end %>
-				    </div>
-	     	</div>
-<% end %>
+						<div class="">
+					           	<p class="text-center" style="margin-top: 20px;border: 1px solid #ddd;border-radius: 5px;background-color: white;color: #777;font-size: 18px;">
+					           		お気に入りされた数　：　<%= @cat.favorites.count %>
+					           	</p>
+					    </div>
 
-	    </div>
+			<% else %>
+
+			    		<!-- お気に入り -->
+			    		　　<div class="col-lg-6" style="margin-top: 20px;">
+								<div id="favorite_btn" >
+								 <%= render 'favorite_form', cat: @cat, favorite: @favorite %>
+								</div>
+						   </div>
+
+			            <!-- 問合せ -->
+			            <div class="col-lg-6">
+					            <div class="messagelink">
+							          <%= form_for @room do |f| %>
+							           		 <%= f.hidden_field :cat_id, :value => @cat.id %>
+							       		     <%= f.submit "お問い合わせ", class: "btn btn-default", :style=>"width: 150px;" %>
+							          <% end %>
+							    </div>
+				     	</div>
+
+			<% end %>
+		</div>
 
 　　　　　<!-- 画像 -->
         <div class="col-lg-6">

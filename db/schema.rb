@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_072643) do
+ActiveRecord::Schema.define(version: 2019_07_17_083554) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_072643) do
     t.integer "sex"
     t.integer "kind"
     t.string "condition"
-    t.string "vaccine"
+    t.integer "vaccine"
     t.text "remark"
     t.integer "individual_or_corporate"
     t.integer "cat_status", default: 0

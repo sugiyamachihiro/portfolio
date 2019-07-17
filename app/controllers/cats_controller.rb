@@ -2,9 +2,11 @@ class CatsController < ApplicationController
 before_action :authenticate_user!
 
     def index
-        @search = Cat.search(params[:q])
+        @search = Cat.where(cat_status: '募集中').search(params[:q])
         @cats = @search.result
     end
+
+
 
     def show
         @cat = Cat.find(params[:id])

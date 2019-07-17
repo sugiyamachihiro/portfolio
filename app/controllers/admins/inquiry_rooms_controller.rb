@@ -1,8 +1,8 @@
 class Admins::InquiryRoomsController < ApplicationController
 
 	def index
-		@inquiry_room = InquiryRoom.find_by(params[:id])
-		@inquiry_rooms = InquiryRoom.all
+		@inquiry_room = InquiryRoom.unscoped.all
+		@inquiry_rooms = @inquiry_room.page(params[:page]).per(20)
 	end
 
 	def inquiry_room_params

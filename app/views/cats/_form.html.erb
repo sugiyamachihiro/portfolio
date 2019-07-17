@@ -85,7 +85,9 @@
 						   <%= f.label "去勢済" %>
 						</div>
 				　　　</div>
-					    <%= f.text_field :vaccine, class: "form-control", placeholder: "vaccine" %>
+			          <div class="form-group" style="margin-bottom: 0px;">
+			            <%= f.select :vaccine, Cat.vaccines.keys, {prompt: 'vaccine'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;" %>
+			          </div>
 					    <%= f.text_field :remark, class: "form-control", style: "height: 100px;", placeholder: "remark" %>
 
 						    	<div class="form-group login-group-checkbox4 form-control" style="margin: 0px 0px;">

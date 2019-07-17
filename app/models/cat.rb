@@ -67,4 +67,6 @@ enum cat_status: {募集中:0, 相談中:1, 募集終了:2}
 
 enum spay_and_neuter: {未:1,済:2}
 
+enum vaccine: {未接種:1, "1回済":2, "2回済":3, "3回済":4, "3回以上済":4}
+
 end

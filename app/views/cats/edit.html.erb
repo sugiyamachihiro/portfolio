@@ -106,8 +106,8 @@
                     </div>
 
                 <div class="buttongroup">
-		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 277px;" %>
-		          <%= link_to "削除", cat_path(@cat), class: "btn btn-danger  col-lg-6 destroy_#{@cat.id}", style: "margin-top: 10px;width: 277px;", method: :delete, data:{confirm:"本当に削除しますか？"} %>
+		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 ", :style=>"background-color: #777;color: white;margin-top: 10px;margin-bottom: 30px;width: 277px;" %>
+		          <%= link_to "削除", cat_path(@cat), class: "btn btn-danger  col-lg-6 destroy_#{@cat.id}", style: "margin-top: 10px;margin-bottom: 30px;width: 277px;", method: :delete, data:{confirm:"本当に削除しますか？"} %>
 		        </div>
 			    <% end %>
 

@@ -74,7 +74,11 @@
 						        <% end %>
 						<% end %>
 	                </td>
-	                <td><%= room.cat.title %></td>
+	                <td>
+	                	<%= link_to room_path(room.id) do %>
+		                	<%= room.cat.title %>
+		                <% end %>
+	                </td>
 	                <td><%= room.cat.prefecture %></td>
 	                <td><%= room.cat.cat_status %></td>
 	          </tr>

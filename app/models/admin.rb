@@ -6,4 +6,12 @@ class Admin < ApplicationRecord
 
   has_many :inquiry_room
 
+  def user
+      User.unscoped{super}
+  end
+
+   def cat
+      Cat.unscoped{super}
+  end
+
 end

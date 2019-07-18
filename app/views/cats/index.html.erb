@@ -16,7 +16,7 @@
 
 		<% @cats.each do |cat| %>
 
-				<div class="d-inline-block col-lg-3" style="margin: 30px 0 30px 0;">
+				<div class="d-inline-block col-lg-3 col-xs-4 col-xs-offset-2 " style="margin: 30px 0 30px 0;">
 					<%= link_to cat_path(cat.id) do %>
 					  <% cat.cat_images.first(1).each do |image| %>
 					    <%= attachment_image_tag image, :image, :fill, 180, 180, style: " border-radius: 50%;border: solid 3px white;" %>
@@ -31,13 +31,14 @@
 
 		<% end %>
 　　</div>
+　　</div>
 
+	<div class="row">
 	<div class="d-inline-block col-lg-10 col-lg-offset-1">
 		<div class="search-box" style="margin-bottom: 30px;">
 		　　　<h2 style="border-left: 8px solid #f2a49b;margin: 30px 0 30px 0;">理想の猫さんを探す</h2>
 		     <%= render 'cats/catsearch' %>
 	     </div>
 	</div>
-
-　　</div>
+    </div>
 </div>

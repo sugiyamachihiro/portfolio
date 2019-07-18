@@ -6,9 +6,11 @@
       <% else %>
         <% login_user = current_user %>
       <% end %>
+
     <% if current_user %>
       <% inquiry_message.adminflag = inquiry_message.adminflag == 1? 0:1 %>
     <% end %>
+
 		  <% if inquiry_message.adminflag == 1 %>
 		    <div class="message_right" style="margin: 20px 0 20px 0;width: 100%;" >
           <span class="message__right" id="" style="" ><%= inquiry_message.content%></span>
@@ -18,5 +20,6 @@
           <span class="message__left" id="" style="" ><%= inquiry_message.content%></span>
         </div>
 		  <% end %>
+
  <% end %>
  </div>

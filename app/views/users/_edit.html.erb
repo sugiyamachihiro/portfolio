@@ -1,6 +1,6 @@
 <div class="container">
       <div class="row">
-      	 <div class="col-lg-8 col-lg-offset-2" style="margin-bottom: 30px;">
+      	 <div class="col-lg-8 col-lg-offset-2 col-xs-8 col-xs-offset-2" style="margin-bottom: 30px;">
 			<h4>マイプロフィール</h4>
 
 			<ul class="list-unstyled">
@@ -64,8 +64,8 @@
                   </div>
 
                 <div class="buttongroup" style="margin-left: -15px;">
-		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 250px;" %>
-		          <%= link_to "退会", user_path(@user), class: "btn btn-danger  col-lg-6 destroy_#{@user.id}", style: "margin-top: 10px;width: 250px;", method: :delete, data:{confirm:"本当に退会しますか？"} %>
+		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 col-xs-6 col-xs-offset-3 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 250px;" %>
+		          <%= link_to "退会", user_path(@user), class: "btn btn-danger  col-lg-6 col-xs-6 col-xs-offset-3 destroy_#{@user.id}", style: "margin-top: 10px;width: 250px;", method: :delete, data:{confirm:"本当に退会しますか？"} %>
 		        </div>
 		    <% end %>
 		    <ul>

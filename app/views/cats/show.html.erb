@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-	<div class="d-inline-block col-lg-8 col-lg-offset-2" style="margin-top: 30px;">
+	<div class="d-inline-block col-lg-8 col-lg-offset-2 col-xs-12" style="margin-top: 30px;">
 
 			<% if notice %>
 		        <div class="alert alert-success alert-dismissible" role="alert" style="margin-top: 30px;">
@@ -12,7 +12,7 @@
 		        </div>
 		    <% end %>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-xs-6">
 
             <!-- 投稿のタイトル -->
 　　　　　　　<h3 class="" style="margin-left: 15px;color: #696969;"><strong><%= @cat.title %></strong></h3>
@@ -38,7 +38,7 @@
 
 			<% if @cat.user_id == current_user.id %>
 
-						<div class="col-lg-12">
+						<div class="col-lg-12 col-xs-12">
 					           	<p class="text-center" style="margin-top: 20px;border: 1px solid #ddd;border-radius: 5px;background-color: white;color: #777;font-size: 18px;">
 					           		お気に入りされた数　：　<%= @cat.favorites.count %>
 					           	</p>
@@ -47,13 +47,13 @@
 			<% else %>
 
 			    		<!-- お気に入り -->
-		    		　　<div class="col-lg-6" style="margin-top: 20px;">
+		    		　　<div class="col-lg-6 col-xs-6" style="margin-top: 20px;">
 							<div id="favorite_btn" >
 							 <%= render 'favorite_form', cat: @cat, favorite: @favorite %>
 							</div>
 					   </div>
 			            <!-- 問合せ -->
-			            <div class="col-lg-6">
+			            <div class="col-lg-6 col-xs-6">
 
 				          <% if @cat.cat_status == "募集中" %>
 					            <div class="messagelink">
@@ -81,7 +81,7 @@
 		</div>
 
 　　　　　<!-- 画像 -->
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-xs-6">
         	<div class="slick">
 				<% @cat.cat_images.each do |image| %>
 				  <div>
@@ -99,7 +99,7 @@
 			</script>
 		</div>
 
-        <div class="col-lg-12">
+        <div class="col-lg-12 col-xs-12">
 		    <!-- 基本情報 -->
 			<table class="table table-sm table-narrow table-bordered" style="background-color: white;color: #777;">
 				<tbody>
@@ -137,7 +137,7 @@
                         <th colspan="">その他備考</th>
                     </tr>
                     <tr><td colspan="">
-            	          <% if @cat.remark == nil %>
+            	          <% if @cat.remark == "" %>
 				            <p>特になし</p>
 				          <% else %>
 				            <%= @cat.remark %>

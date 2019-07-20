@@ -116,18 +116,18 @@
 			  <div id="tab2" class="tab-pane">
 
 			  	<div class="row">
-	      	    <div class="col-lg-12" >
+	      	    <div class="col-lg-12 col-xs-12" >
 	                 <h4 style="margin: 15px;"><%= @user.nick_name %>さんのプロフィール</h4>
 
-		                <div class="col-lg-3" >
+		                <div class="col-lg-3 col-xs-2" >
 						    <%= attachment_image_tag(@user, :image, :fill, 150, 150, fallback: "img/no_image.jpg") %>
 						</div>
 
-						<div class="col-lg-5 introduction-box" style="padding: 10px;border: 1px solid #ddd;height: 150px;background-color: white;color: #777;">
+						<div class="col-lg-5  col-xs-5 introduction-box" style="padding: 10px;border: 1px solid #ddd;height: 150px;background-color: white;color: #777;">
 							<%= @user.introduction %>
                         </div>
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-xs-5">
                         	<p>ニックネーム　：　<%= @user.nick_name %></p>
                         	<p>性別　　　　　：　<%= @user.sex %></p>
                         	<p>在住地域　　　：　<%= @user.prefecture %></p>

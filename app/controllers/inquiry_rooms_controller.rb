@@ -1,15 +1,23 @@
 class InquiryRoomsController < ApplicationController
 
 	def show
+		@inquiry_room = InquiryRoom.find(params[:id])
 		if user_signed_in?
+	        if current_user.id != @inquiry_room.user.id
+	           redirect_to user_inquiry_room_path(current_user.id, @inquiry_room)
+	        else
 			@inquiry_room = InquiryRoom.find(params[:id])
 	        @messages = InquiryMessage.where(inquiry_room_id: @inquiry_room.id)
+	        end
         elsif admin_signed_in?
 	        @inquiry_room = InquiryRoom.find(params[:id])
 	        @messages = InquiryMessage.where(inquiry_room_id: @inquiry_room.id)
         else
             redirect_to root_path
         end
+
+
+
 	end
 
   	def create

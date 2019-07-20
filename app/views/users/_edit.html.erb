@@ -63,10 +63,15 @@
 			             <%= f.attachment_field :image, class: "form-control", style:"width: 500px;" %>
                   </div>
 
-                <div class="buttongroup" style="margin-left: -15px;">
-		          <%= f.submit "編集", class: "btn btn-secondary btn-block col-lg-6 col-xs-6 col-xs-offset-3 ", :style=>"background-color: #777;color: white;margin-top: 10px;width: 250px;" %>
-		          <%= link_to "退会", user_path(@user), class: "btn btn-danger  col-lg-6 col-xs-6 col-xs-offset-3 destroy_#{@user.id}", style: "margin-top: 10px;width: 250px;", method: :delete, data:{confirm:"本当に退会しますか？"} %>
+                 <div class="row buttongroup" style="margin-left: -15px;">
+	                <div class="col-lg-4 col-xs-6"style="padding: 0;">
+			          <%= f.submit "編集", class: "btn btn-secondary btn-block", :style=>"background-color: #777;color: white;margin-top: 10px;" %>
+			        </div>
+			        <div class="col-lg-4 col-xs-6" style="padding-left: 0;">
+			          <%= link_to "退会", user_path(@user), class: "btn btn-danger btn-block destroy_#{@user.id}", style: "margin-top: 10px;", method: :delete, data:{confirm:"本当に退会しますか？"} %>
+			        </div>
 		        </div>
+
 		    <% end %>
 		    <ul>
 			</div>

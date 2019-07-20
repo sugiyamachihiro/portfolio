@@ -5,9 +5,9 @@
 	 </li>
 	</ul>
 <% else %>
-<ul class="list-unstyled">
- <li class="like_on">
-  <%= link_to "☆気になる", cat_favorites_path(@cat), method: :post, remote: true, class: "like_on_btn btn btn-default", :style=>"width: 150px;" %>
- </li>
-</ul>
+	<ul class="list-unstyled">
+	 <li class="like_on">
+	  <%= link_to "☆気になる", cat_favorites_path(@cat), method: :post, remote: true, class: "like_on_btn btn btn-default", :style=>"width: 150px;" %>
+	 </li>
+	</ul>
 <% end %>

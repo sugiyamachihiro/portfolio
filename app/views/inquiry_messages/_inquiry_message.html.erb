@@ -1,11 +1,11 @@
  <% @messages.each do |inquiry_message| %>
  <div class="message" data-session="<%= session[:user_id] %>">
-    <% user = User.find_by(id: inquiry_message.from_id) %>
-      <% if current_user == nil %>
-        <% login_user = current_admin %>
-      <% else %>
-        <% login_user = current_user %>
-      <% end %>
+
+  <% if current_user == nil %>
+    <% login_user = current_admin %>
+  <% else %>
+    <% login_user = current_user %>
+  <% end %>
 
     <% if current_user %>
       <% inquiry_message.adminflag = inquiry_message.adminflag == 1? 0:1 %>

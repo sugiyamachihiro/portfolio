@@ -1,16 +1,19 @@
 require 'happybirthday'
 class EighteenValidator < ActiveModel::EachValidator
 def validate_each(record, attribute, value)
+  if value == nil
+  else
     year_old = Happybirthday.born_on(value.year.to_s + '/' + value.month.to_s + '/' + value.day.to_s).age.years_old
     p year_old
     if year_old.to_i < 18
         record.errors.add(attribute, "does not meet 18 years old")
     end
+  end
 end
 end
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+# Include default devise modules. Others available are:
+# :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 #validate :over_eightteen
 devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -39,7 +42,7 @@ has_many :favorite_cats, through: :favorites, source: :cat
   validates :nick_name,presence: true, length:{ in: 1..50 }
   validates :user_name,presence: true, length:{ in: 1..50 }
   validates :sex,presence: true
-  validates :birthday,presence: true,eighteen: true
+  validates :birthday,presence: true, eighteen: true
   validates :postalcode,presence: true, length:{is:7},format:{with:/\A[0-9]+\z/}
   validates :prefecture,presence: true
   validates :address,presence: true
@@ -65,5 +68,4 @@ enum profession: {
 enum sex: {
     男:1,女:2
   }
-
 end

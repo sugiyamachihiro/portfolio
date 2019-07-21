@@ -4,7 +4,7 @@ class InquiryRoomsController < ApplicationController
 		@inquiry_room = InquiryRoom.find(params[:id])
 		if user_signed_in?
 	        if current_user.id != @inquiry_room.user.id
-	           redirect_to user_inquiry_room_path(current_user.id, @inquiry_room)
+	           redirect_to  user_path(current_user.id)
 	        else
 			@inquiry_room = InquiryRoom.find(params[:id])
 	        @messages = InquiryMessage.where(inquiry_room_id: @inquiry_room.id)

@@ -55,10 +55,6 @@
 		            <%= f.select :profession, User.professions.keys, {prompt: 'profession'}, class: 'form-control', style: "height: 35px;color: #aaaaaa;width: 500px;" %>
 		          </div>
 
-		          <div class="form-group" style="margin-top: 0px;margin-bottom: 0px;">
-		            <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "email", style:"width: 500px;"%>
-		          </div>
-
 		          <div class="profile-images-edit" style="margin-left: -15px;">
 			             <%= f.attachment_field :image, class: "form-control", style:"width: 500px;" %>
                   </div>

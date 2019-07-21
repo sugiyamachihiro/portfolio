@@ -1,6 +1,6 @@
 class CreateCats < ActiveRecord::Migration[5.2]
   def change
-    create_table :cats do |t|
+    create_table :cats, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
     t.integer :user_id
     t.string  :title
 	t.integer :prefecture

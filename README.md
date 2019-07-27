@@ -28,7 +28,8 @@ DMMwebcamp3ヶ月目の課題として個人ポートフォリオの制作で作
   
 【バージョン】<br>
  Ruby 2.3.8<br>
- Rails 5.2.3<br><br>
+ Rails 5.2.3<br>
+ JQuery 3.4.1<br><br>
   
 【使用gem】<br>
 

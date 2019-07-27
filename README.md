@@ -1,11 +1,13 @@
 【作品名】<br>
 さとねこ<br><br>
 
+<img width="1440" alt="satoneko_topimg" src="https://user-images.githubusercontent.com/50160082/61991330-73b8a680-b089-11e9-8d82-55252cb2a0db.png">
+
 【URL】<br>
 http://3.16.125.100/<br><br>
 
 ●テストユーザー　ログイン情報<br>
-email:tast@gmail.com<br>
+email:test@gmail.com<br>
 pass:tttttt<br><br>
 
 【制作経緯】<br>

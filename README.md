@@ -41,7 +41,7 @@ DMMwebcamp3ヶ月目の課題として個人ポートフォリオの制作で作
 ・devise<br>
 
 ●生年月日から年齢を計算(会員登録時)<br>
-happybirthday<br>
+・happybirthday<br>
 
 ●デザイン<br>
 ・bootstrap（3.4.1）<br>
